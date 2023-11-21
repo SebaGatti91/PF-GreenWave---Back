@@ -5,7 +5,7 @@ const { Router } = require('express');
 
 
 const router = Router();
-
+console.log("holis");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
