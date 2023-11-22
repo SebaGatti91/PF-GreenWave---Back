@@ -5,28 +5,28 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     // defino el modelo
-    sequelize.define('User', {
+    sequelize.define('Material', {
       id: {
         type: DataTypes.UUID,
         primaryKey: true,
         defaultValue:DataTypes.UUIDV4
      },
-      email: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      image: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      credits: {
-        type: DataTypes.FLOAT,
+      quantity: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         default: 0,
+      },
+      credit_value: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+      },
+      money_value: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
       }
     }, {
       timestamps: false 
