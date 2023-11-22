@@ -1,4 +1,4 @@
-const { Material } = reuire("../db");
+const { Material } = require("../db");
 
 const postMaterial = async (req, res) => {
   const { name, credit_value, money_value } = req.body;
