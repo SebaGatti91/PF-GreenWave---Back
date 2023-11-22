@@ -5,13 +5,13 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     // defino el modelo
-    sequelize.define('User', {
+    sequelize.define('Point', {
       id: {
         type: DataTypes.UUID,
         primaryKey: true,
         defaultValue:DataTypes.UUIDV4
      },
-      email: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -23,10 +23,9 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      credits: {
-        type: DataTypes.FLOAT,
+      ubication: {
+        type: DataTypes.STRING,
         allowNull: false,
-        default: 0,
       }
     }, {
       timestamps: false 
