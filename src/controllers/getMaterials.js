@@ -7,13 +7,32 @@ const getMaterials = async (req, res) => {
       include: [{ model: Point }], // Incluye la relación con Points
     });
 
-    // Verificar si se proporciona un nombre de material
+    // Filtro por nombre
     if (req.query.name) {
-      // Filtrar los materiales cuyo nombre coincida con el nombre proporcionado en la consulta
       const searchName = req.query.name.toLowerCase();
       materials = materials.filter((material) =>
         material.name.toLowerCase().startsWith(searchName)
       );
+    }
+
+    // Filtro por punto de retiro
+    if (req.query.pickupPoint) {
+      const pickupPointName = req.query.pickupPoint.toLowerCase();
+      materials = materials.filter((material) =>
+        material.Points.some(
+          (point) => point.name.toLowerCase() === pickupPointName
+        )
+      );
+    }
+
+    // Filtro ascendente
+    if (req.query.sort === "asc") {
+      materials = materials.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    // Filtro descendente
+    if (req.query.sort === "desc") {
+      materials = materials.sort((a, b) => b.name.localeCompare(a.name));
     }
 
     // Verificar si no se encontraron materiales
