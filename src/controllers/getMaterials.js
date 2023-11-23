@@ -1,36 +1,50 @@
 const { Material, Point } = require("../db");
 
-const getPoints = async (req, res) => {
-
+const getMaterials = async (req, res) => {
   try {
-
     // Consultar todos los materiales en la base de datos
-    const points = await Point.findAll({
-      include: [{ model: Material }], // Incluye la relación con Points
+    let materials = await Material.findAll({
+      include: [{ model: Point }], // Incluye la relación con Points
     });
 
-
-    // Verificar si se proporciona un nombre de punto de reciclaje
+    // Filtro por nombre
     if (req.query.name) {
-      // Filtrar los puntos de reciclaje cuyo nombre coincida con el nombre proporcionado en la consulta
       const searchName = req.query.name.toLowerCase();
-      points = points.filter((point) =>
-        point.name.toLowerCase().startsWith(searchName)
+      materials = materials.filter((material) =>
+        material.name.toLowerCase().startsWith(searchName)
       );
     }
 
-    // Verificar si no se encontraron puntos de reciclaje
-    if (points.length === 0) {
-      return res
-        .status(404)
-        .json({ message: "No se encontraron puntos de reciclaje con ese nombre" });
+    // Filtro por punto de retiro
+    if (req.query.pickupPoint) {
+      const pickupPointName = req.query.pickupPoint.toLowerCase();
+      materials = materials.filter((material) =>
+        material.Points.some(
+          (point) => point.name.toLowerCase() === pickupPointName
+        )
+      );
     }
 
-    // Responder con los datos de todos los puntos de reciclaje
+    // Filtro ascendente
+    if (req.query.sort === "asc") {
+      materials = materials.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    // Filtro descendente
+    if (req.query.sort === "desc") {
+      materials = materials.sort((a, b) => b.name.localeCompare(a.name));
+    }
+
+    // Verificar si no se encontraron materiales
+    if (materials.length === 0) {
+      return res.status(404).json({ message: "No se encontraron materiales" });
+    }
+
+    // Responder con los datos de todos los materiales
     res.status(200).json(materials);
   } catch (error) {
     res.status(500).send(error.message);
   }
 };
 
-module.exports = { getPoints};
+module.exports = { getMaterials };
