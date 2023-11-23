@@ -15,8 +15,7 @@ module.exports = async(req,res) =>{
                  description: product.description,
              }});
              await Products.bulkCreate(product)
-            console.log('Prendas saved in Db')
     } catch (error) {
-        console.log('este error')
+        return res.status(500).send(error.message);
     }
 }
