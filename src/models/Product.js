@@ -1,0 +1,38 @@
+const { DataTypes } = require('sequelize');
+
+module.exports = (sequelize) => {
+
+    sequelize.define('Product', {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+     },
+     userId: {
+      type: DataTypes.INTEGER,
+      allowNull: true, 
+    },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      img: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      price: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      }
+    }, {
+      timestamps: false 
+    });
+  };
