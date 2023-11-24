@@ -5,12 +5,12 @@ const getMaterials = async (req, res) => {
   try {
     const material = materials.map((material) => {
       return {
-          name: material.name,
-          quantity: material.quantity,
-          credit_value: material.credit_value,
-          money_value: material.money_value,
+        name: material.name,
+        quantity: material.quantity,
+        credit_value: material.credit_value,
+        money_value: material.money_value,
       }
-  })
+    })
     // Consultar todos los materiales en la base de datos
     let recyclableMaterials = await Material.findAll({
       include: [{ model: Point }], // Incluye la relación con Points
@@ -27,7 +27,7 @@ const getMaterials = async (req, res) => {
       recyclableMaterials = recyclableMaterials.filter((material) =>
         material.name.toLowerCase().startsWith(searchName)
       )
-      return res.status(404).json({ message: "Product not found" });
+      return res.status(404).json({ message: "Material not found" });
     }
 
     // Filtro por punto de retiro
