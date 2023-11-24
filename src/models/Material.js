@@ -7,9 +7,9 @@ module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('Material', {
       id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         primaryKey: true,
-        autoIncrement: true,
+        defaultValue:DataTypes.UUIDV4
      },
       name: {
         type: DataTypes.STRING,

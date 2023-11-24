@@ -20,9 +20,8 @@ const getProducts = async (req, res) => {
       await Product.bulkCreate(product)
     }
 
-    // Verificar si se proporciona un nombre de producto
+    // Filtro por nombre
     if (req.query.name) {
-      // Filtrar los productos cuyo nombre coincida con el nombre proporcionado en la consulta
       const searchName = req.query.name.toLowerCase();
       productsFromDB = productsFromDB.filter((product) =>
         product.name.toLowerCase().startsWith(searchName)
