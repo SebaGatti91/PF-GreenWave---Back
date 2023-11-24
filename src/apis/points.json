@@ -1,35 +1,30 @@
 {
     "points":[
     {
-      "id": "1",
       "name": "123 Main St",
       "password": "securepassword1",
       "status": "activo",
       "ubication": "City A"
     },
     {
-      "id": "2",
       "name": "456 Oak St",
       "password": "securepassword2",
       "status": "activo",
       "ubication": "City B"
     },
     {
-      "id": "3",
       "name": "789 Pine St",
       "password": "securepassword3",
       "status": "activo",
       "ubication": "City C"
     },
     {
-      "id": "4",
       "name": "101 Elm St",
       "password": "securepassword4",
       "status": "activo",
       "ubication": "City D"
     },
     {
-      "id": "5",
       "name": "202 Birch St",
       "password": "securepassword5",
       "status": "activo",
