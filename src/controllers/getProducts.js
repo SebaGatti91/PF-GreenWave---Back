@@ -21,8 +21,8 @@ const getProducts = async (req, res) => {
     }
 
     // Filtro por nombre
-    if (req.params.name) {
-      const searchName = req.params.name.toLowerCase();
+    if (req.query.name) {
+      const searchName = req.query.name.toLowerCase();
       productsFromDB = productsFromDB.filter((product) =>
         product.name.toLowerCase().startsWith(searchName)
       );
