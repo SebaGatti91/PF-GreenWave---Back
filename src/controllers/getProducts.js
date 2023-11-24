@@ -26,7 +26,10 @@ const getProducts = async (req, res) => {
       productsFromDB = productsFromDB.filter((product) =>
         product.name.toLowerCase().startsWith(searchName)
       );
-      return res.status(404).json({ message: "Product not found" });
+      if (productsFromDB.length===0){
+        return res.status(404).json({ message: "Product not found" });
+      }
+      return res.status(200).json(productsFromDB)
     }
 
     // Filtro ascendente
