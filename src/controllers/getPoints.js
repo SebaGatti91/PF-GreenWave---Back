@@ -11,7 +11,7 @@ const getPoints = async (req, res) => {
       }
     })
     // Consultar todos los point en la base de datos
-    const pointsdb = await Point.findAll({
+    let pointsdb = await Point.findAll({
       include: [{ model: Material }], // Incluye la relación con Material
     });
 
@@ -23,10 +23,14 @@ const getPoints = async (req, res) => {
     // Filtro por nombre
     if (req.query.name) {
       const searchName = req.query.name.toLowerCase();
-      pointsdb = points.filter((point) =>
+      pointsdb = pointsdb.filter((point) =>
         point.name.toLowerCase().startsWith(searchName)
       )
-      return res.status(404).json({ message: "Point not found" });
+      if (pointsdb.length===0){
+        return res.status(404).json({ message: "Point not found" });
+      }
+      return res.status(200).json(pointsdb)
+      
     }
 
     // Filtro por material

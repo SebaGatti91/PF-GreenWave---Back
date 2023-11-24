@@ -27,8 +27,11 @@ const getMaterials = async (req, res) => {
       recyclableMaterials = recyclableMaterials.filter((material) =>
         material.name.toLowerCase().startsWith(searchName)
       )
-      return res.status(404).json({ message: "Material not found" });
-    }
+      if (recyclableMaterials.length===0){
+        return res.status(404).json({ message: "Material not found" });
+      }
+      return res.status(200).json(recyclableMaterials)
+  }
 
     // Filtro por punto de retiro
     if (req.query.pickupPoint) {
