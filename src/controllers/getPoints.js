@@ -20,14 +20,16 @@ const getPoints = async (req, res) => {
       await Point.bulkCreate(point)
     }
 
-    console.log(pointsdb);
     // Verificar si se proporciona un nombre de punto de reciclaje
     if (req.query.name) {
       // Filtrar los puntos de reciclaje cuyo nombre coincida con el nombre proporcionado en la consulta
       const searchName = req.query.name.toLowerCase();
       pointsdb = points.filter((point) =>
         point.name.toLowerCase().startsWith(searchName)
-      );
+      ) 
+        return res.status(404).json({
+        message: "Point not found",
+      });
     }
 
     // Filtro por material
