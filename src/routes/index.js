@@ -19,5 +19,6 @@ router.get('/products', getProducts);
 router.post('/materials', postMaterial);
 router.post('/points', postPoint);
 router.post('/products', postProduct);
+router.get('/products/:id', getProducts)
 
 module.exports = router;

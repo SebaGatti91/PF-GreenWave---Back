@@ -21,8 +21,8 @@ const getProducts = async (req, res) => {
     }
 
     // Filtro por nombre
-    if (req.query.name) {
-      const searchName = req.query.name.toLowerCase();
+    if (req.params.name) {
+      const searchName = req.params.name.toLowerCase();
       productsFromDB = productsFromDB.filter((product) =>
         product.name.toLowerCase().startsWith(searchName)
       );
@@ -40,6 +40,16 @@ const getProducts = async (req, res) => {
     // Filtro descendente
     if (req.query.sort === "desc") {
       productsFromDB = productsFromDB.sort((a, b) => b.name.localeCompare(a.name));
+    }
+
+    if (req.params.id) {
+      const searchId = req.params.id; 
+      productsFromDB = productsFromDB.filter((product) => product.id === searchId);
+    
+      if (productsFromDB.length === 0) {
+        return res.status(404).json({ message: "Product not found" });
+      }
+      return res.status(200).json(productsFromDB);
     }
 
     // Responder con los datos de todos los productos
