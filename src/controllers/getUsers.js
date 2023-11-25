@@ -12,16 +12,16 @@ const getUsers= async (req, res) => {
         credits: user.credits
       };
     });
-    // Consultar todos los productos en la base de datos
+    // Consultar todos los usuarios en la base de datos
     let userFromDb = await User.findAll();
 
-    // Verificar si no se encontraron productos
+    // Verificar si no se encontraron usuarios
     if (userFromDb.length === 0) {
       console.log('a putno de guardar usuarios en db')
        await User.bulkCreate(user);
     }
 
-       // Responder con los datos de todos los productos
+       // Responder con los datos de todos los usuarios
        res.status(200).json(userFromDb);
       } catch (error) {
         res.status(500).send(error.message);

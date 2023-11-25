@@ -8,7 +8,7 @@ const postUser = async (req, res) => {
         return res.status(400).send("Insufficient data");
       }
 
-    // Buscar un producto con el mismo email
+    // Buscar un usuario con el mismo email
     const [user, userCreated] = await User.findOrCreate({
       where: { email } ,// Búsqueda basada en el email
       defaults: {
