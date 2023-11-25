@@ -7,7 +7,8 @@ const { getProducts } = require('../controllers/getProducts');
 const { postMaterial } = require('../controllers/postMaterial');
 const { postPoint } = require('../controllers/postPoint');
 const { postProduct } = require('../controllers/postProduct');
-const { getProductsId } = require('../controllers/getProductId')
+const { getProductsId } = require('../controllers/getProductId');
+const { getUsers } = require('../controllers/getUsers');
 
 const router = Router();
 
@@ -21,5 +22,6 @@ router.post('/materials', postMaterial);
 router.post('/points', postPoint);
 router.post('/products', postProduct);
 router.get('/store/:id', getProductsId)
+router.get('/users', getUsers)
 
 module.exports = router;
