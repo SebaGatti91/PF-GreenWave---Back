@@ -1,5 +1,5 @@
 const { Product } = require("../db");
-const { products } = require('../apis/products.json');
+const { products } = require("../apis/products.json");
 
 const getProducts = async (req, res) => {
   try {
@@ -10,15 +10,15 @@ const getProducts = async (req, res) => {
         status: product.status,
         price: product.price,
         description: product.description,
-        rating: product.rating
-      }
-    })
+        rating: product.rating,
+      };
+    });
     // Consultar todos los productos en la base de datos
     let productsFromDB = await Product.findAll();
 
     // Verificar si no se encontraron productos
     if (productsFromDB.length === 0) {
-      await Product.bulkCreate(product)
+      await Product.bulkCreate(product);
     }
 
     // Filtro por nombre
@@ -30,36 +30,45 @@ const getProducts = async (req, res) => {
       if (productsFromDB.length === 0) {
         return res.status(404).json({ message: "Product not found" });
       }
-      return res.status(200).json(productsFromDB)
+      return res.status(200).json(productsFromDB);
     }
 
-    if (req.query.rating) {
-      const ratingValue = parseInt(req.query.rating, 10); 
-      productsFromDB = productsFromDB.filter((product) => product.rating === ratingValue);
+    // Ordenamiento alfabetico ascendente
+    if (req.query.sort === "nameAsc") {
+      productsFromDB = productsFromDB.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
     }
 
-    // Filtro ascendente
-    if (req.query.sort === "asc") {
-      productsFromDB = productsFromDB.sort((a, b) => a.name.localeCompare(b.name));
+    // Ordenamiento alfabetico descendente
+    if (req.query.sort === "nameDesc") {
+      productsFromDB = productsFromDB.sort((a, b) =>
+        b.name.localeCompare(a.name)
+      );
     }
 
-    // Filtro descendente
-    if (req.query.sort === "desc") {
-      productsFromDB = productsFromDB.sort((a, b) => b.name.localeCompare(a.name));
+    // Ordenamiento por precio ascendente
+    if (req.query.sort === "priceAsc") {
+      productsFromDB = productsFromDB.sort((a, b) => a.price - b.price);
     }
 
-    // Filtro por precio mínimo
-    if (req.query.minPrice) {
-      const minPrice = req.query.minPrice;
-      productsFromDB = productsFromDB.filter((product) => product.price >= minPrice);
+    // Ordenamiento por precio descendente
+    if (req.query.sort === "priceDesc") {
+      productsFromDB = productsFromDB.sort((a, b) => b.price - a.price);
     }
 
-    // Filtro por precio máximo
-    if (req.query.maxPrice) {
-      const maxPrice = req.query.maxPrice;
-      productsFromDB = productsFromDB.filter((product) => product.price <= maxPrice);
+    //Filtrado por rating
+    if (
+      req.query.filter === "1" ||
+      req.query.filter === "2" ||
+      req.query.filter === "3" ||
+      req.query.filter === "4" ||
+      req.query.filter === "5"
+    ) {
+      productsFromDB = productsFromDB.filter(
+        (product) => product.rating == req.query.filter
+      );
     }
-
 
     // Responder con los datos de todos los productos
     res.status(200).json(productsFromDB);
