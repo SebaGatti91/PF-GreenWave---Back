@@ -31,6 +31,10 @@ module.exports = (sequelize) => {
       description: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      rating: {
+        type:DataTypes.INTEGER,
+        allowNull: false
       }
     }, {
       timestamps: false 
