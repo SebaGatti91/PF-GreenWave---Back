@@ -26,7 +26,7 @@ const getProducts = async (req, res) => {
       productsFromDB = productsFromDB.filter((product) =>
         product.name.toLowerCase().startsWith(searchName)
       );
-      if (productsFromDB.length===0){
+      if (productsFromDB.length === 0) {
         return res.status(404).json({ message: "Product not found" });
       }
       return res.status(200).json(productsFromDB)
@@ -42,7 +42,17 @@ const getProducts = async (req, res) => {
       productsFromDB = productsFromDB.sort((a, b) => b.name.localeCompare(a.name));
     }
 
-    
+    // Filtro por precio mínimo
+    if (req.query.minPrice) {
+      const minPrice = req.query.minPrice;
+      productsFromDB = productsFromDB.filter((product) => product.price >= minPrice);
+    }
+
+    // Filtro por precio máximo
+    if (req.query.maxPrice) {
+      const maxPrice = req.query.maxPrice;
+      productsFromDB = productsFromDB.filter((product) => product.price <= maxPrice);
+    }
 
     // Responder con los datos de todos los productos
     res.status(200).json(productsFromDB);
