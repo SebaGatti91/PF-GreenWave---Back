@@ -10,6 +10,7 @@ const getProducts = async (req, res) => {
         status: product.status,
         price: product.price,
         description: product.description,
+        rating: product.rating
       }
     })
     // Consultar todos los productos en la base de datos
@@ -30,6 +31,11 @@ const getProducts = async (req, res) => {
         return res.status(404).json({ message: "Product not found" });
       }
       return res.status(200).json(productsFromDB)
+    }
+
+    if (req.query.rating) {
+      const ratingValue = parseInt(req.query.rating, 10); 
+      productsFromDB = productsFromDB.filter((product) => product.rating === ratingValue);
     }
 
     // Filtro ascendente
@@ -53,6 +59,7 @@ const getProducts = async (req, res) => {
       const maxPrice = req.query.maxPrice;
       productsFromDB = productsFromDB.filter((product) => product.price <= maxPrice);
     }
+
 
     // Responder con los datos de todos los productos
     res.status(200).json(productsFromDB);
