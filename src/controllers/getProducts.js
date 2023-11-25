@@ -42,15 +42,7 @@ const getProducts = async (req, res) => {
       productsFromDB = productsFromDB.sort((a, b) => b.name.localeCompare(a.name));
     }
 
-    if (req.params.id) {
-      const searchId = req.params.id; 
-      productsFromDB = productsFromDB.filter((product) => product.id === searchId);
     
-      if (productsFromDB.length === 0) {
-        return res.status(404).json({ message: "Product not found" });
-      }
-      return res.status(200).json(productsFromDB);
-    }
 
     // Responder con los datos de todos los productos
     res.status(200).json(productsFromDB);
