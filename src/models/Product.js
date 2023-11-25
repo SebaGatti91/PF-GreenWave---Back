@@ -1,17 +1,18 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-
-    sequelize.define('Product', {
+  sequelize.define(
+    "Product",
+    {
       id: {
         type: DataTypes.UUID,
         primaryKey: true,
-        defaultValue:DataTypes.UUIDV4
-     },
-     userId: {
-      type: DataTypes.INTEGER,
-      allowNull: true, 
-    },
+        defaultValue: DataTypes.UUIDV4,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -28,11 +29,17 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      rating: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       description: {
         type: DataTypes.STRING,
         allowNull: false,
-      }
-    }, {
-      timestamps: false 
-    });
-  };
+      },
+    },
+    {
+      timestamps: false,
+    }
+  );
+};
