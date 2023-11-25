@@ -1,0 +1,89 @@
+{
+    "users": [
+      {
+        "name": "George Bluth",
+        "email": "george.bluth@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/1-image.jpg",
+        "credits": 0
+      },
+      {
+        "name": "Janet Weaver",
+        "email": "janet.weaver@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/2-image.jpg",
+        "credits": 2.5
+      },
+      {
+        "name": "Emma Wong",
+        "email": "emma.wong@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/3-image.jpg",
+        "credits": 3.0
+      },
+      {
+        "name": "Eve Holt",
+        "email": "eve.holt@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/4-image.jpg",
+        "credits": 1.5
+      },
+      {
+        "name": "Charles Morris",
+        "email": "charles.morris@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/5-image.jpg",
+        "credits": 4.0
+      },
+      {
+        "name": "Tracey Ramos",
+        "email": "tracey.ramos@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/6-image.jpg",
+        "credits": 4.0
+      },
+      {
+        "name": "Michael Lawson",
+        "email": "michael.lawson@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/7-image.jpg",
+        "credits": 1.5
+      },
+      {
+        "name": "Lindsay Ferguson",
+        "email": "lindsay.ferguson@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/8-image.jpg",
+        "credits": 2.5
+      },
+      {
+        "name": "Tobias Funke",
+        "email": "tobias.funke@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/9-image.jpg",
+        "credits": 3.0
+      },
+      {
+        "name": "Byron Fields",
+        "email": "byron.fields@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/10-image.jpg",
+        "credits": 0
+      },
+      {
+        "name": "George Edwards",
+        "email": "george.edwards@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/11-image.jpg",
+        "credits": 0
+      },
+      {
+        "name": "Rachel Howell",
+        "email": "rachel.howell@reqres.in",
+        "password": "contraseña",
+        "image": "https://reqres.in/img/faces/12-image.jpg",
+        "credits": 0
+      }
+    ]
+  }
+  
