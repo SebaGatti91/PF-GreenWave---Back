@@ -1,9 +1,9 @@
 const { User } = require("../db");
 const { users } = require("../apis/users.json");
 
-const getUsers= async (req, res) => {
+const getUsers = async (req, res) => {
   try {
-    const user = users.map((user)=>{
+    const user = users.map((user) => {
       return {
         name: user.name,
         email: user.email,
@@ -17,15 +17,14 @@ const getUsers= async (req, res) => {
 
     // Verificar si no se encontraron usuarios
     if (userFromDb.length === 0) {
-      console.log('a putno de guardar usuarios en db')
-       await User.bulkCreate(user);
+      userFromDb = await User.bulkCreate(user);
     }
 
-       // Responder con los datos de todos los usuarios
-       res.status(200).json(userFromDb);
-      } catch (error) {
-        res.status(500).send(error.message);
-      }
-    };
-    
+    // Responder con los datos de todos los usuarios
+    return res.status(200).json(userFromDb);
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
 module.exports = { getUsers };

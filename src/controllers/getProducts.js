@@ -1,4 +1,4 @@
-const { Product } = require("../db");
+const { Product, Material } = require("../db");
 const { products } = require("../apis/products.json");
 
 const getProducts = async (req, res) => {
@@ -6,11 +6,12 @@ const getProducts = async (req, res) => {
     const product = products.map((product) => {
       return {
         name: product.name,
-        img: product.img,
+        image: product.image,
         status: product.status,
         price: product.price,
         description: product.description,
         rating: product.rating,
+        materials: product.materials.join(", ")
       };
     });
     // Consultar todos los productos en la base de datos
@@ -18,7 +19,7 @@ const getProducts = async (req, res) => {
 
     // Verificar si no se encontraron productos
     if (productsFromDB.length === 0) {
-      await Product.bulkCreate(product);
+      productsFromDB = await Product.bulkCreate(product);
     }
 
     // Filtro por nombre
@@ -26,6 +27,18 @@ const getProducts = async (req, res) => {
       const searchName = req.query.name.toLowerCase();
       productsFromDB = productsFromDB.filter((product) =>
         product.name.toLowerCase().startsWith(searchName)
+      );
+      if (productsFromDB.length === 0) {
+        return res.status(404).json({ message: "Product not found" });
+      }
+      return res.status(200).json(productsFromDB);
+    }
+
+    // Filtro por material
+    if (req.query.material) {
+      const materialName = req.query.material.toLowerCase();
+      productsFromDB = productsFromDB.filter((product) =>
+        product.materials.toLowerCase().includes(materialName)
       );
       if (productsFromDB.length === 0) {
         return res.status(404).json({ message: "Product not found" });
@@ -69,11 +82,10 @@ const getProducts = async (req, res) => {
         (product) => product.rating == req.query.filter
       );
     }
-
     // Responder con los datos de todos los productos
-    res.status(200).json(productsFromDB);
+    return res.status(200).json(productsFromDB);
   } catch (error) {
-    res.status(500).send(error.message);
+    return res.status(500).send(error.message);
   }
 };
 
