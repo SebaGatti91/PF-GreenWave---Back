@@ -9,15 +9,11 @@ module.exports = (sequelize) => {
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
-      userId: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      img: {
+      image: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -34,6 +30,10 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      materials: {
         type: DataTypes.STRING,
         allowNull: false,
       },
