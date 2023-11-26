@@ -7,6 +7,12 @@
       "money_value": 0.5
     },
     {
+      "name": "Wood",
+      "quantity": 0,
+      "credit_value": 3.0,
+      "money_value": 0.5
+    },
+    {
       "name": "Glass",
       "quantity": 0,
       "credit_value": 3.0,
@@ -25,7 +31,7 @@
       "money_value": 0.8
     },
     {
-      "name": "Ink and Toner Cartridges",
+      "name": "Ink Cartridges",
       "quantity": 0,
       "credit_value": 5.0,
       "money_value": 1.0
@@ -37,7 +43,7 @@
       "money_value": 1.2
     },
     {
-      "name": "Clothing and Textiles",
+      "name": "Textiles",
       "quantity": 0,
       "credit_value": 2.0,
       "money_value": 0.4

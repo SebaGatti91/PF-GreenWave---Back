@@ -1,9 +1,9 @@
 const { Product } = require("../db");
 
 const postProduct = async (req, res) => {
-  const { name, img, status, price, description } = req.body;
+  const { name, image, status, price, description } = req.body;
   try {
-    if (!name || !img || !status || !price || !description) {
+    if (!name || !image || !status || !price || !description) {
       return res.status(400).send("Insufficient data");
     }
 
@@ -12,7 +12,7 @@ const postProduct = async (req, res) => {
       where: { name }, // Búsqueda basada en el nombre
       defaults: {
         name,
-        img,
+        image,
         status,
         price,
         description,

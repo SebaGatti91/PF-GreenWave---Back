@@ -12,13 +12,11 @@ const getMaterials = async (req, res) => {
       }
     })
     // Consultar todos los materiales en la base de datos
-    let recyclableMaterials = await Material.findAll({
-      include: [{ model: Point }], // Incluye la relación con Points
-    });
+    let recyclableMaterials = await Material.findAll();
 
     // Verificar si no se encontraron materiales
     if (recyclableMaterials.length === 0) {
-      await Material.bulkCreate(material)
+      recyclableMaterials = await Material.bulkCreate(material);
     }
 
     // Filtro por nombre
@@ -27,21 +25,21 @@ const getMaterials = async (req, res) => {
       recyclableMaterials = recyclableMaterials.filter((material) =>
         material.name.toLowerCase().startsWith(searchName)
       )
-      if (recyclableMaterials.length===0){
+      if (recyclableMaterials.length === 0) {
         return res.status(404).json({ message: "Material not found" });
       }
       return res.status(200).json(recyclableMaterials)
-  }
+    }
 
     // Filtro por punto de retiro
-    if (req.query.pickupPoint) {
-      const pickupPointName = req.query.pickupPoint.toLowerCase();
-      recyclableMaterials = recyclableMaterials.filter((material) =>
-        material.Points.some(
-          (point) => point.name.toLowerCase() === pickupPointName
-        )
-      );
-    }
+    // if (req.query.pickupPoint) {
+    //   const pickupPointName = req.query.pickupPoint.toLowerCase();
+    //   recyclableMaterials = recyclableMaterials.filter((material) =>
+    //     material.Points.some(
+    //       (point) => point.name.toLowerCase() === pickupPointName
+    //     )
+    //   );
+    // }
 
     // Filtro ascendente
     if (req.query.sort === "asc") {
@@ -54,9 +52,9 @@ const getMaterials = async (req, res) => {
     }
 
     // Responder con los datos de todos los materiales
-    res.status(200).json(recyclableMaterials);
+    return res.status(200).json(recyclableMaterials);
   } catch (error) {
-    res.status(500).send(error.message);
+    return res.status(500).send(error.message);
   }
 };
 

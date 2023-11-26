@@ -8,7 +8,7 @@ const postPoint = async (req, res) => {
     }
 
     // Buscar un punto con el mismo nombre
-    const [point, pointCreated]  = await Point.findOrCreate({
+    const [point, pointCreated] = await Point.findOrCreate({
       where: { name }, // Búsqueda basada en el nombre
       defaults: {
         name,

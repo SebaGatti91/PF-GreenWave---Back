@@ -1,34 +1,82 @@
 {
-    "points":[
+  "points": [
     {
-      "name": "123 Main St",
+      "name": "Main 123 St",
       "password": "securepassword1",
-      "status": "activo",
-      "ubication": "City A"
+      "ubication": "City A",
+      "materials": [
+        "Paper and Cardboard",
+        "Wood"
+      ]
     },
     {
-      "name": "456 Oak St",
+      "name": "Oak 456 St",
       "password": "securepassword2",
-      "status": "activo",
-      "ubication": "City B"
+      "ubication": "City B",
+      "materials": [
+        "Paper and Cardboard",
+        "Textiles"
+      ]
     },
     {
-      "name": "789 Pine St",
+      "name": "Pine 789 St",
       "password": "securepassword3",
-      "status": "activo",
-      "ubication": "City C"
+      "ubication": "City A",
+      "materials": [
+        "Plastic",
+        "Ink Cartridges",
+        "Electronics"
+      ]
     },
     {
-      "name": "101 Elm St",
+      "name": "Elm 101 St",
       "password": "securepassword4",
-      "status": "activo",
-      "ubication": "City D"
+      "ubication": "City B",
+      "materials": [
+        "Metals",
+        "Electronics",
+        "Batteries"
+      ]
     },
     {
-      "name": "202 Birch St",
+      "name": "Birch 202 St",
       "password": "securepassword5",
-      "status": "activo",
-      "ubication": "City E"
+      "ubication": "City A",
+      "materials": [
+        "Used Cooking Oil"
+      ]
+    },
+    {
+      "name": "Maple 303 St",
+      "password": "securepassword6",
+      "ubication": "City C",
+      "materials": [
+        "Glass"
+      ]
+    },
+    {
+      "name": "Willow 404 St",
+      "password": "securepassword7",
+      "ubication": "City C",
+      "materials": [
+        "Tires"
+      ]
+    },
+    {
+      "name": "Cedar 505 St",
+      "password": "securepassword8",
+      "ubication": "City A",
+      "materials": [
+        "Glass"
+      ]
+    },
+    {
+      "name": "Pine 606 St",
+      "password": "securepassword9",
+      "ubication": "City B",
+      "materials": [
+        "Used Cooking Oil"
+      ]
     }
   ]
 }
