@@ -1,9 +1,9 @@
 const { Product } = require("../db");
 
 const postProduct = async (req, res) => {
-  const { name, image, status, price, description } = req.body;
+  const { name, image, status, price, description, rating, materials } = req.body;
   try {
-    if (!name || !image || !status || !price || !description) {
+    if (!name || !image || !status || !price || !description || !rating || materials) {
       return res.status(400).send("Insufficient data");
     }
 
@@ -16,6 +16,8 @@ const postProduct = async (req, res) => {
         status,
         price,
         description,
+        rating,
+        materials
       },
     });
 
