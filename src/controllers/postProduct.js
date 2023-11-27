@@ -1,7 +1,7 @@
 const { Product } = require("../db");
 
 const postProduct = async (req, res) => {
-  const { name, image, stock, price, description, rating, materials } =
+  const { name, image, stock, price, description, rating, materials, userId } =
     req.body;
   try {
     if (
@@ -21,6 +21,7 @@ const postProduct = async (req, res) => {
       where: { name }, // Búsqueda basada en el nombre
       defaults: {
         name,
+        userId,
         image,
         stock,
         price,
