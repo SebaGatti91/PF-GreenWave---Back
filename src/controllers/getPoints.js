@@ -1,36 +1,63 @@
-const { Material, Point } = require("../db");
+const { Point, Material } = require("../db");
+const { points } = require("../apis/points.json")
 
 const getPoints = async (req, res) => {
-
   try {
+    const point = points.map((point) => {
+      return {
+        name: point.name,
+        password: point.password,
+        ubication: point.ubication,
+        materials: point.materials.join(", ")
+      }
+    })
+    // Consultar todos los point en la base de datos
+    let pointsFromDB = await Point.findAll();
 
-    // Consultar todos los materiales en la base de datos
-    const points = await Point.findAll({
-      include: [{ model: Material }], // Incluye la relación con Points
-    });
-
-
-    // Verificar si se proporciona un nombre de punto de reciclaje
-    if (req.query.name) {
-      // Filtrar los puntos de reciclaje cuyo nombre coincida con el nombre proporcionado en la consulta
-      const searchName = req.query.name.toLowerCase();
-      points = points.filter((point) =>
-        point.name.toLowerCase().startsWith(searchName)
-      );
+    // Verificar si no se encontraron points
+    if (pointsFromDB.length === 0) {
+      pointsFromDB = await Point.bulkCreate(point);
     }
 
-    // Verificar si no se encontraron puntos de reciclaje
-    if (points.length === 0) {
-      return res
-        .status(404)
-        .json({ message: "No se encontraron puntos de reciclaje con ese nombre" });
+    // Filtro por nombre
+    if (req.query.name) {
+      const searchName = req.query.name.toLowerCase();
+      pointsFromDB = pointsFromDB.filter((point) =>
+        point.name.toLowerCase().startsWith(searchName)
+      )
+      if (pointsFromDB.length === 0) {
+        return res.status(404).json({ message: "Point not found" });
+      }
+      return res.status(200).json(pointsFromDB)
+    }
+
+    // Filtro por material
+    if (req.query.material) {
+      const materialName = req.query.material.toLowerCase();
+      pointsFromDB = pointsFromDB.filter((product) =>
+        product.materials.toLowerCase().includes(materialName)
+      );
+      if (pointsFromDB.length === 0) {
+        return res.status(404).json({ message: "Point not found" });
+      }
+      return res.status(200).json(pointsFromDB)
+    }
+
+    // Filtro ascendente
+    if (req.query.sort === "asc") {
+      pointsFromDB = pointsFromDB.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    // Filtro descendente
+    if (req.query.sort === "desc") {
+      pointsFromDB = pointsFromDB.sort((a, b) => b.name.localeCompare(a.name));
     }
 
     // Responder con los datos de todos los puntos de reciclaje
-    res.status(200).json(materials);
+    return res.status(200).json(pointsFromDB);
   } catch (error) {
-    res.status(500).send(error.message);
+    return res.status(500).send(error.message);
   }
 };
 
-module.exports = { getPoints};
+module.exports = { getPoints };

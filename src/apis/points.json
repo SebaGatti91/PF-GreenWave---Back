@@ -1,0 +1,82 @@
+{
+  "points": [
+    {
+      "name": "Main 123 St",
+      "password": "securepassword1",
+      "ubication": "City A",
+      "materials": [
+        "Paper and Cardboard",
+        "Wood"
+      ]
+    },
+    {
+      "name": "Oak 456 St",
+      "password": "securepassword2",
+      "ubication": "City B",
+      "materials": [
+        "Paper and Cardboard",
+        "Textiles"
+      ]
+    },
+    {
+      "name": "Pine 789 St",
+      "password": "securepassword3",
+      "ubication": "City A",
+      "materials": [
+        "Plastic",
+        "Ink Cartridges",
+        "Electronics"
+      ]
+    },
+    {
+      "name": "Elm 101 St",
+      "password": "securepassword4",
+      "ubication": "City B",
+      "materials": [
+        "Metals",
+        "Electronics",
+        "Batteries"
+      ]
+    },
+    {
+      "name": "Birch 202 St",
+      "password": "securepassword5",
+      "ubication": "City A",
+      "materials": [
+        "Used Cooking Oil"
+      ]
+    },
+    {
+      "name": "Maple 303 St",
+      "password": "securepassword6",
+      "ubication": "City C",
+      "materials": [
+        "Glass"
+      ]
+    },
+    {
+      "name": "Willow 404 St",
+      "password": "securepassword7",
+      "ubication": "City C",
+      "materials": [
+        "Tires"
+      ]
+    },
+    {
+      "name": "Cedar 505 St",
+      "password": "securepassword8",
+      "ubication": "City A",
+      "materials": [
+        "Glass"
+      ]
+    },
+    {
+      "name": "Pine 606 St",
+      "password": "securepassword9",
+      "ubication": "City B",
+      "materials": [
+        "Used Cooking Oil"
+      ]
+    }
+  ]
+}

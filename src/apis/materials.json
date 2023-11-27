@@ -1,0 +1,70 @@
+{
+  "materials": [
+    {
+      "name": "Paper and Cardboard",
+      "quantity": 0,
+      "credit_value": 2.5,
+      "money_value": 0.5
+    },
+    {
+      "name": "Wood",
+      "quantity": 0,
+      "credit_value": 3.0,
+      "money_value": 0.5
+    },
+    {
+      "name": "Glass",
+      "quantity": 0,
+      "credit_value": 3.0,
+      "money_value": 0.6
+    },
+    {
+      "name": "Plastic",
+      "quantity": 0,
+      "credit_value": 1.5,
+      "money_value": 0.3
+    },
+    {
+      "name": "Metals",
+      "quantity": 0,
+      "credit_value": 4.0,
+      "money_value": 0.8
+    },
+    {
+      "name": "Ink Cartridges",
+      "quantity": 0,
+      "credit_value": 5.0,
+      "money_value": 1.0
+    },
+    {
+      "name": "Electronics",
+      "quantity": 0,
+      "credit_value": 6.0,
+      "money_value": 1.2
+    },
+    {
+      "name": "Textiles",
+      "quantity": 0,
+      "credit_value": 2.0,
+      "money_value": 0.4
+    },
+    {
+      "name": "Tires",
+      "quantity": 0,
+      "credit_value": 3.5,
+      "money_value": 0.7
+    },
+    {
+      "name": "Batteries",
+      "quantity": 0,
+      "credit_value": 4.5,
+      "money_value": 0.9
+    },
+    {
+      "name": "Used Cooking Oil",
+      "quantity": 0,
+      "credit_value": 2.0,
+      "money_value": 0.4
+    }
+  ]
+}
