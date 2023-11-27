@@ -1,9 +1,18 @@
 const { Product } = require("../db");
 
 const postProduct = async (req, res) => {
-  const { name, image, status, price, description, rating, materials } = req.body;
+  const { name, image, status, price, description, rating, materials } =
+    req.body;
   try {
-    if (!name || !image || !status || !price || !description || !rating || materials) {
+    if (
+      !name ||
+      !image ||
+      !status ||
+      !price ||
+      !description ||
+      !rating ||
+      !materials
+    ) {
       return res.status(400).send("Insufficient data");
     }
 
@@ -17,14 +26,14 @@ const postProduct = async (req, res) => {
         price,
         description,
         rating,
-        materials
+        materials,
       },
     });
 
     if (productCreated) {
       return res.status(200).send("Product successfully created");
     }
-    return res.status(409).send("The product already exists");    
+    return res.status(409).send("The product already exists");
   } catch (error) {
     return res.status(500).send(error.message);
   }
