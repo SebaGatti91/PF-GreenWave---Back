@@ -7,7 +7,7 @@ const getProducts = async (req, res) => {
       return {
         name: product.name,
         image: product.image,
-        status: product.status,
+        stock: product.stock,
         price: product.price,
         description: product.description,
         rating: product.rating,
