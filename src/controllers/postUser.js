@@ -1,30 +1,30 @@
 const { User } = require("../db");
 
 const postUser = async (req, res) => {
-  const { name, email, password, image, credits } = req.body;
+  const { name, email, image } = req.query;
+
   try {
-    if (!name || !email || !password || credits === undefined) {
-      return res.status(400).send("Insufficient data");
+    if (!email) {
+      return res.status(400).send("Insufficient data: Email is required");
     }
 
     // Buscar un usuario con el mismo email
     const [user, userCreated] = await User.findOrCreate({
-      where: { email },// Búsqueda basada en el email
+      where: { email }, // Búsqueda basada en el email
       defaults: {
-        name,
         email,
-        password,
-        credits,
-        image,
+        credits: 0,
       },
     });
 
     if (userCreated) {
       return res.status(200).send("User successfully created");
     }
-    return res.status(409).send("The user already exist with this email");
+
+    return res.status(409).send("The user already exists with this email");
   } catch (error) {
-    return res.status(500).send(error.message);
+    console.error("Error creating user:", error);
+    return res.status(500).send("Internal Server Error");
   }
 };
 
