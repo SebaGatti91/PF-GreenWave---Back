@@ -31,12 +31,6 @@
       "money_value": 0.8
     },
     {
-      "name": "Ink Cartridges",
-      "quantity": 0,
-      "credit_value": 5.0,
-      "money_value": 1.0
-    },
-    {
       "name": "Electronics",
       "quantity": 0,
       "credit_value": 6.0,
@@ -44,24 +38,6 @@
     },
     {
       "name": "Textiles",
-      "quantity": 0,
-      "credit_value": 2.0,
-      "money_value": 0.4
-    },
-    {
-      "name": "Tires",
-      "quantity": 0,
-      "credit_value": 3.5,
-      "money_value": 0.7
-    },
-    {
-      "name": "Batteries",
-      "quantity": 0,
-      "credit_value": 4.5,
-      "money_value": 0.9
-    },
-    {
-      "name": "Used Cooking Oil",
       "quantity": 0,
       "credit_value": 2.0,
       "money_value": 0.4

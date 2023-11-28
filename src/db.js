@@ -48,10 +48,10 @@ const { Material, Point, Product } = sequelize.models;
 
 // Definición de la relación muchos a muchos
 
-Material.belongsToMany(Point, { through: 'recycling' });
-Point.belongsToMany(Material, { through: 'recycling' });
-Material.belongsToMany(Product, { through: 'made' });
-Product.belongsToMany(Material, { through: 'made' });
+Material.belongsToMany(Point, { through: 'material_point' });
+Point.belongsToMany(Material, { through: 'material_point' });
+Material.belongsToMany(Product, { through: 'material_product' });
+Product.belongsToMany(Material, { through: 'material_product' });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

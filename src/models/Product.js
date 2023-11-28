@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      status: {
+      stock: {
         type: DataTypes.STRING,
         allowNull: false,
       },

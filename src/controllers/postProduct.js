@@ -1,13 +1,13 @@
 const { Product } = require("../db");
 
 const postProduct = async (req, res) => {
-  const { name, image, status, price, description, rating, materials } =
+  const { name, image, stock, price, description, rating, materials } =
     req.body;
   try {
     if (
       !name ||
       !image ||
-      !status ||
+      !stock ||
       !price ||
       !description ||
       !rating ||
@@ -22,7 +22,7 @@ const postProduct = async (req, res) => {
       defaults: {
         name,
         image,
-        status,
+        stock,
         price,
         description,
         rating,
