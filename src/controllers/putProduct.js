@@ -23,7 +23,7 @@ const putProduct = async (req, res) => {
       materials: materials || existingProduct.materials,
     });
     return res.status(200).json(modifiedProduct);
-    // return res.status(200).json({ message: 'Producto actualizado correctamente' });
+    // return res.status(200).json({ message: 'Product successfully updated' });
   } catch (error) {
     return res.status(500).send(error.message);
   }
