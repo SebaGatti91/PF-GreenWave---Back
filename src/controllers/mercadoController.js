@@ -40,7 +40,6 @@ const mercadoController = async (req, res) => {
     };
 
     const respuesta = await payment.create(preference);
-    console.log(respuesta);
     res.status(200).json(respuesta.init_point);
   } catch (error) {
     console.error(error.message);
