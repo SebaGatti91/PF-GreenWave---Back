@@ -14,6 +14,7 @@ const { getPoints } = require('../controllers/getPoints');
 const { postPoint } = require('../controllers/postPoint');
 const { getUserById } = require('../controllers/getUsersById');
 const { mercadoController } = require('../controllers/mercadoController');
+const { responseMercado } = require('../controllers/responseMercado');
 
 const router = Router();
 
@@ -33,5 +34,7 @@ router.get('/points', getPoints);
 router.post('/points', postPoint);
 router.get('/users/:id', getUserById);
 router.post('/mercadoPago', mercadoController);
+router.get('/feedback', responseMercado);
+
 
 module.exports = router;
