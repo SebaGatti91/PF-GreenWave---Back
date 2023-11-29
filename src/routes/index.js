@@ -12,6 +12,8 @@ const { getMaterials } = require('../controllers/getMaterials');
 const { postMaterial } = require('../controllers/postMaterial');
 const { getPoints } = require('../controllers/getPoints');
 const { postPoint } = require('../controllers/postPoint');
+const { getUserById } = require('../controllers/getUsersById');
+const { mercadoController } = require('../controllers/mercadoController');
 
 const router = Router();
 
@@ -29,5 +31,7 @@ router.get('/materials', getMaterials);
 router.post('/materials', postMaterial);
 router.get('/points', getPoints);
 router.post('/points', postPoint);
+router.get('/users/:id', getUserById);
+router.post('/mercadoPago', mercadoController);
 
 module.exports = router;
