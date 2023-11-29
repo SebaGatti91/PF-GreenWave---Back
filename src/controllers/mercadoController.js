@@ -9,6 +9,8 @@ const payment = new Preference(client)
 
 const mercadoController = async (req, res) => {
 
+  //Se mapea lo que le llega por body para generar un array de objetos como items para mercado pago.
+
   // const productos = req.body;
   // const items = productos.map((producto)=>({
   //   title: producto.title,
@@ -20,14 +22,14 @@ const mercadoController = async (req, res) => {
   try {
     const preference = {
       body:{
-      external_reference: {id :1999},
+      external_reference: {id :1999},// aqui podemos mandar el id del producto para generar cambios en la DB. 
       items: [
         {
           title: "PCcc gamer",
           unit_price: 2000,
           currency_id: "ARS",
           quantity: 1,
-        },
+        }, //  items -- se le pasan los items mapeados
       ],
 
       back_urls: {
