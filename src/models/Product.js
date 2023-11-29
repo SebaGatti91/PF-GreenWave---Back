@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       stock: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       price: {
@@ -30,10 +30,6 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       description: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      materials: {
         type: DataTypes.STRING,
         allowNull: false,
       },
