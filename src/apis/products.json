@@ -4,11 +4,7 @@
       "id":1,
       "name": "Bag with recycled cardboard",
       "image": "https://i.imgur.com/r33jzUG.jpeg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 500,
       "description": "A unique and sustainable bag made with recycled cardboard. This bag is not only stylish but also contributes to caring for the environment.",
       "rating": 3,
@@ -22,11 +18,7 @@
       "id":2,
       "name": "Cups with recycled cardboard",
       "image": "https://i.imgur.com/6MVmzLm.jpeg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 100,
       "description": "With these eco-friendly cups made from recycled cardboard, every sip is a reminder of your commitment to a sustainable lifestyle.",
       "rating": 5,
@@ -38,11 +30,7 @@
       "id":3,
       "name": "Lamps made from recycled bottles",
       "image": "https://i.imgur.com/QtaUaSx.jpeg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 200,
       "description": "Light up your space with these beautiful lamps created from recycled bottles. Each lamp tells a unique story of reuse and creativity.",
       "rating": 2,
@@ -56,11 +44,7 @@
       "id":4,
       "name": "Table with recycled wood",
       "image": "https://i.imgur.com/LRqxob4.jpeg",
-<<<<<<< HEAD
       "stock": 1,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 600,
       "description": "A unique and sturdy coffee table made from recycled wood. Perfect for those looking for environmentally conscious furniture.",
       "rating": 4,
@@ -73,11 +57,7 @@
       "id":5,
       "name": "Chain with recycled metal",
       "image": "https://i.imgur.com/2wqzy8q.jpeg",
-<<<<<<< HEAD
       "stock": 2,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 300,
       "description": "This elegant chain made from recycled metal is a testament to style and sustainability. It looks good and helps the planet.",
       "rating": 1,
@@ -90,11 +70,7 @@
       "id":6,
       "name": "Cup holder with recycled wood",
       "image": "https://i.imgur.com/bO2OkwU.jpeg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 50,
       "description": "These cup holders made with love and recycled wood add a rustic and sustainable touch to your space. Enjoy your drinks in style!",
       "rating": 5,
@@ -108,11 +84,7 @@
       "id":7,
       "name": "Pencil holder with recycled cardboard",
       "image": "https://i.imgur.com/j3gllxV.jpeg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 60,
       "description": "Organize your pencils sustainably with this pencil holder made from recycled cardboard. A practical accessory with a touch of eco-consciousness.",
       "rating": 2,
@@ -125,11 +97,7 @@
       "id":8,
       "name": "Napkin holder with recycled fabric",
       "image": "https://i.imgur.com/xWotKYE.jpeg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "1",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 100,
       "description": "This elegant and eco-friendly napkin holder, made from recycled fabrics, adds a touch of sophistication and sustainability to your table.",
       "rating": 4,
@@ -142,11 +110,7 @@
       "id":9,
       "name": "Backpack with recycled parachute fabric",
       "image": "https://www.kienyke.com/sites/default/files/wp-content/uploads/2015/07/Emprendimiento-hacen-maletas-Nouvelle-Bags-P.jpg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 800,
       "description": "A durable and modern backpack created from recycled parachute fabric. Ideal for carrying your belongings with style and sustainability.",
       "rating": 3,
@@ -160,11 +124,7 @@
       "id":10,
       "name": "Vase with recycled glass bottles",
       "image": "https://i.pinimg.com/474x/61/bf/15/61bf154d587a59bfb6ac571801fcb921.jpg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 120,
       "description": "Beautify your space with this elegant vase made from recycled glass bottles. Each vase is unique and contributes to the art of recycling.",
       "rating": 1,
@@ -178,11 +138,7 @@
       "id":11,
       "name": "Rug with recycled ties",
       "image": "https://i.pinimg.com/236x/d8/ab/db/d8abdb021b4a3c3758e845ebcde12fb9.jpg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 250,
       "description": "Give a touch of originality to your home with this colorful rug made from recycled ties. A unique piece for your decoration.",
       "rating": 4,
@@ -194,11 +150,7 @@
       "id":12,
       "name": "Laptop case with recycled fabric",
       "image": "https://i.etsystatic.com/9196346/r/il/3f3584/3181954133/il_300x300.3181954133_kxsa.jpg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 350,
       "description": "Protect your laptop with style and environmental awareness with this case made from recycled fabric. Each case tells a unique advertising story.",
       "rating": 5,
@@ -211,11 +163,7 @@
       "id":13,
       "name": "Jewelry box with recycled soda cans",
       "image": "https://i.pinimg.com/736x/6f/44/62/6f4462bf52e8a92701ae12f3795c7a97.jpg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 80,
       "description": "Organize your jewelry sustainably with this jewelry box made from recycled soda cans. A touch of creativity for your dresser.",
       "rating": 2,
@@ -229,11 +177,7 @@
       "id":14,
       "name": "Recycled wood bookstand",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVA0aGjcDczLaO7z37aVuH2Gi8t0F5lCjQpsQVSGdv3TzwcBDI_D8RwWV06cRwU5-1xzg&usqp=CAU",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 180,
       "description": "Keep your books in order with this stylish and functional stand made from recycled wood. A perfect addition to your sustainable library.",
       "rating": 3,
@@ -245,11 +189,7 @@
       "id":15,
       "name": "Wall clock with recycled vinyl records",
       "image": "https://estag.fimagenes.com/img/4/3/W/w/3/3Ww3_900.jpg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "2",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 200,
       "description": "Give a vintage touch to your home with this unique wall clock made from recycled vinyl records. A retro accessory with a modern twist.",
       "rating": 1,
@@ -262,11 +202,7 @@
       "id":16,
       "name": "Mug with recycled coconut shells",
       "image": "https://m.media-amazon.com/images/I/91KcUHNzcEL._AC_UF350,350_QL80_.jpg",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 30,
       "description": "Enjoy your favorite drink in this eco-friendly mug made from recycled coconut shells. A sustainable choice for your moments of relaxation.",
       "rating": 4,
@@ -278,11 +214,7 @@
       "id":17,
       "name": "Recycled tire glasses case",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGRy-qdlXhinAxhjnIULyeuKvdumlH8tIsVw&usqp=CAU",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 50,
       "description": "Protect your glasses with style and environmental responsibility with this case made from recycled tires. A modern and ecological accessory.",
       "rating": 2,
@@ -295,11 +227,7 @@
       "id":18,
       "name": "Storage box with recycled newspapers",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS8o1dc83Bx7BiyRs3pjSd0pZKINWNC9RyfA&usqp=CAU",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 40,
       "description": "Organize your space with this storage box made from recycled newspapers. A creative way to reuse information.",
       "rating": 5,
@@ -313,11 +241,7 @@
       "id":19,
       "name": "Tray with recycled bottle caps",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5EDkVlxyt3k70Jsk_pIHPOXo5j-gA0lqH-g&usqp=CAU",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 90,
       "description": "Serve your meals in style on this unique tray made from recycled bottle caps. A mix of functionality and sustainability.",
       "rating": 3,
@@ -329,11 +253,7 @@
       "id":20,
       "name": "Stool with recycled pallets",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAsT5-ziIs3lPc3OcVOIkAKAV8ElR659c6_w&usqp=CAU",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 150,
       "description": "Add additional seating to your home with this stool made from recycled pallets. A combination of comfort and respect for the environment.",
       "rating": 1,
@@ -345,11 +265,7 @@
       "id":21,
       "name": "Mirror with a frame made of recycled CDs",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5zNP_a48G4d5Oz3L_cuPWhg64RvrLyHs_Q&usqp=CAU",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 120,
       "description": "Reflect your style with this unique mirror featuring a frame made from recycled CDs. A modern and eco-friendly work of art.",
       "rating": 4,
@@ -362,11 +278,7 @@
       "id":22,
       "name": "Recycled plastic bottle pet toy",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKm4-LQfoj8d39hhxgGaeATTdAs07F7CBdDw&usqp=CAU",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 20,
       "description": "Amuse your pet sustainably with this toy created from recycled plastic bottles. An eco-friendly gift for your furry friends.",
       "rating": 5,
@@ -378,11 +290,7 @@
       "id":23,
       "name": "Chair made from recycled car tires",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIQyFhTOxZo5pYpfzRIbYpkSpNm8L72uY4jw&usqp=CAU&reload=on",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 400,
       "description": "Add a unique touch to your space with this chair made from recycled car tires. Comfort and sustainability in a single design.",
       "rating": 3,
@@ -395,11 +303,7 @@
       "id":24,
       "name": "Chandelier with recycled cutlery",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxHxceJfsRYNRlWqWB7v3uSQoim2Q6l6cbXfxZeQhrvbYjXF5hX5mEavondTg3kvS7oqg&usqp=CAU",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 80,
       "description": "Light up your space with this creative chandelier made with recycled cutlery. A touch of originality for your special moments.",
       "rating": 2,
@@ -411,11 +315,7 @@
       "id":25,
       "name": "Shopping bag with recycled advertising banners",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzhJ_gmI04U74EH9MS2x45DoHsBunkwXrUlg&usqp=CAU",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 30,
       "description": "Do your shopping sustainably with this bag made from recycled advertising banners. A practical and ecological accessory.",
       "rating": 4,
@@ -427,11 +327,7 @@
       "id":26,
       "name": "Trashcan with recycled cardboard",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnN4j4u-EC6qblal0pMiMMONUAG3ttTEIrUfvoCI68u0EPb1g5sQ_wRDhv_mw2FNfk2hw&usqp=CAU",
-<<<<<<< HEAD
       "stock": 50,
-=======
-      "stock": "50",
->>>>>>> 3974e1c06d22e2410dcf5c5961d320d51e218327
       "price": 25,
       "description": "Keep your space tidy with this functional trash can made from recycled cardboard. An economical and environmentally friendly option.",
       "rating": 1,
