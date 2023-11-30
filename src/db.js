@@ -48,7 +48,7 @@ const { Material, Point, Product, User } = sequelize.models;
 // Product.hasMany(Reviews);
 
 // Definición de la relación muchos a muchos
-console.log(sequelize.models)
+// console.log(sequelize.models)
 
 Material.belongsToMany(Point, { through: 'material_point' });
 Point.belongsToMany(Material, { through: 'material_point' });
