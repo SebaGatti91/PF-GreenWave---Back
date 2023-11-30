@@ -19,7 +19,7 @@ const mercadoController = async (req, res) => {
   //   quantity: producto.quantity,
   // }))
 
-  //archivos
+  //archivos///
   try {
     const preference = {
       body:{
