@@ -107,6 +107,11 @@ const responseMercado = async (req, res) => {
             <h3>¡Gracias por unirte a nosotros!</h3>
           </section>
           
+        <img
+          class="logo"
+          src="https://media.discordapp.net/attachments/1172286566689939527/1174431440478412841/Green_Wave.png?ex=657a0683&is=65679183&hm=786fe24053b53605b7c58d75b2e386e2c25ebeadb8c662545e631b4f2c2ad6a7&=&format=webp&quality=lossless&width=269&height=212"
+          alt="Urian-Viera Logo" />   
+             
         </div>
       </body>
     </html>`
@@ -115,7 +120,7 @@ const responseMercado = async (req, res) => {
   if (status === "approved") {
     await user.addProduct(product)
   }
-  
+
   res.redirect('https://www.elespectador.com/resizer/Y6i1y4O1HnbwKq5W7mTq81n0udU=/525x350/filters:quality(60):format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/PT3GKS2WMRBNLHDLXQWWM63J5U.jpg')
   
 }
