@@ -19,6 +19,7 @@ const mercadoController = async (req, res) => {
   //   quantity: producto.quantity,
   // }))
 
+  //archivos
   try {
     const preference = {
       body:{
@@ -43,7 +44,7 @@ const mercadoController = async (req, res) => {
 
     const respuesta = await payment.create(preference);
     res.status(200).json(respuesta.init_point);
-    
+
   } catch (error) {
     
     res.status(500).json(error.message);

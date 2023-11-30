@@ -19,7 +19,9 @@ const getUserById = async (req, res) => {
     return res.status(200).json({...userFound.dataValues,
     productsCreados: productOfUser,
     productsComprados: productosRelacionados
-  });
+  }); 
+  //perdido
+  
   } catch (error) {
     return res.status(500).send(error.message);
   }
