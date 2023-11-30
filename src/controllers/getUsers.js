@@ -4,24 +4,24 @@ const { users } = require("../apis/users.json");
 const getUsers = async (req, res) => {
   try {
     
-    // // Map the information of users from the JSON file
-    // const usersJSON = users.map((user) => {
-    //   return {
-    //     name: user.name,
-    //     email: user.email,
-    //     password: user.password,
-    //     image: user.image,
-    //     credits: user.credits,
-    //   };
-    // });
+    // Map the information of users from the JSON file
+    const usersJSON = users.map((user) => {
+      return {
+        name: user.name,
+        email: user.email,
+        password: user.password,
+        image: user.image,
+        credits: user.credits,
+      };
+    });
 
     // Query all users in the database
     let usersDB = await User.findAll();
 
-    // // Check if no users were found in the database and create them from the JSON
-    // if (usersDB.length === 0) {
-    //   usersDB = await User.bulkCreate(usersJSON);
-    // }
+    // Check if no users were found in the database and create them from the JSON
+    if (usersDB.length === 0) {
+      usersDB = await User.bulkCreate(usersJSON);
+    }
 
     // Search by email
     if (req.query.email) {
