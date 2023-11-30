@@ -1,6 +1,6 @@
 const { Product, Material } = require("../db");
 const axios = require("axios");
-const URL = `https://apimocha.com/greenwave/products`;
+const URL = `https://ef38b114681e413e99d0dc06bc056b46.api.mockbin.io/`;
 
 const getProducts = async (req, res) => {
   try {
@@ -8,6 +8,7 @@ const getProducts = async (req, res) => {
     const { products } = response.data;
 
     const productsFromApi = await Promise.all(products.map((product) => ({
+      id: product.id,
       name: product.name,
       image: product.image,
       stock: product.stock,
@@ -68,7 +69,7 @@ const getProducts = async (req, res) => {
         (product) => product.rating == req.query.filter
       );
     }
-
+ 
     // Ordenamiento
     if (req.query.sort) {
       switch (req.query.sort) {
