@@ -12,23 +12,19 @@ const transporter = nodemailer.createTransport({
     },
     ///este cambiooo
 });
+const {Purchase} = require("../db");
 
 const responseMercado = async (req, res) => {
-    
-  const {status, external_reference } = req.query
 
-  const datos =  JSON.parse(external_reference)
+  
+  const {status, external_reference }= req.query
 
-  console.log(datos)
+  const datos = JSON.parse(external_reference)
 
-  const user = await User.findOne({ where: { id: datos.userId } })
-  const product = await Product.findAll({ where: {id: datos.productsId}});
-
-//   await Product.update(
-//     { stock: Sequelize.literal(`stock - 1`) }, // Restar la cantidad del stock
-//     { where: { id: datos.productsId } }
-//   );
-
+//   console.log(JSON.PAR(external_reference).userId)
+//   console.log(external_reference.productsId)
+//   console.log(external_reference.userId
+  
   transporter.sendMail({
     from: `GreenWave ${process.env.EMAIL}`,
     to: user.email,
@@ -120,7 +116,7 @@ const responseMercado = async (req, res) => {
     ///este cambioo
   }
   res.redirect('https://www.elespectador.com/resizer/Y6i1y4O1HnbwKq5W7mTq81n0udU=/525x350/filters:quality(60):format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/PT3GKS2WMRBNLHDLXQWWM63J5U.jpg')
-
+  
 }
 
 module.exports = {

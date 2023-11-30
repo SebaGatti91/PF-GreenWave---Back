@@ -5,13 +5,9 @@ const getUserById = async (req, res) => {
   try {
     const { id } = req.params;
     const userFound = await User.findByPk(id);
-
     const productOfUser = await Product.findAll({
       where:{ userId : id}
    }) 
-
-   const productosRelacionados = await userFound.getProducts();
- 
   
     if (!userFound) {
       return res.status(404).json({ message: "user not found" });
@@ -20,8 +16,6 @@ const getUserById = async (req, res) => {
     productsCreados: productOfUser,
     productsComprados: productosRelacionados
   }); 
-  //perdido
-  
   } catch (error) {
     return res.status(500).send(error.message);
   }
