@@ -119,7 +119,7 @@ const responseMercado = async (req, res) => {
     await user.addProduct(product)
     ///este cambioo
   }
-  // res.redirect('https://www.elespectador.com/resizer/Y6i1y4O1HnbwKq5W7mTq81n0udU=/525x350/filters:quality(60):format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/PT3GKS2WMRBNLHDLXQWWM63J5U.jpg')
+  res.redirect('https://www.elespectador.com/resizer/Y6i1y4O1HnbwKq5W7mTq81n0udU=/525x350/filters:quality(60):format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/PT3GKS2WMRBNLHDLXQWWM63J5U.jpg')
 
 }
 
