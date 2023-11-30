@@ -30,7 +30,7 @@ const responseMercado = async (req, res) => {
 
   transporter.sendMail({
     from: `GreenWave ${process.env.EMAIL}`,
-    to: datos.email,
+    to: user.email,
     subject: "Gracias por tu compra",
     html:`<!DOCTYPE html>
     <html lang="en">
