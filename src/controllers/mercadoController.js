@@ -22,7 +22,7 @@ const mercadoController = async (req, res) => {
   try {
     const preference = {
       body:{
-      external_reference: {userId : "590e71ba-987a-4551-8fdc-5b351aabaf95", productsId: "78363843-9488-461d-b3c1-510dc97465f5", email: "emermontes15@gmail.com"}, // aqui podemos mandar el id del producto para generar cambios en la DB. 
+      external_reference: {userId : 1999, productsId: [1]}, // aqui podemos mandar el id del producto para generar cambios en la DB. 
       items: [
         {
           title: "PCcc gamer",
@@ -42,8 +42,8 @@ const mercadoController = async (req, res) => {
     };
 
     const respuesta = await payment.create(preference);
-    res.status(200).json(respuesta.init_point);
     
+    res.status(200).json(respuesta.init_point);
   } catch (error) {
     
     res.status(500).json(error.message);
