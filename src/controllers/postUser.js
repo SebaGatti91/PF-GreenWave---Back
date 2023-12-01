@@ -14,6 +14,7 @@ const postUser = async (req, res) => {
       defaults: {
         email,
         credits: 0,
+        status: true
       },
     });
 
