@@ -16,7 +16,10 @@ const { postPoint } = require('../controllers/postPoint');
 const { getUserById } = require('../controllers/getUsersById');
 const { mercadoController } = require('../controllers/mercadoController');
 const { responseMercado } = require('../controllers/responseMercado');
-const { banUser } = require ('../controllers/banUser')
+const { banUser } = require ('../controllers/banUser');
+const { addFavorites } = require('../controllers/addFavorites');
+const { removeFavorites } = require('../controllers/removeFavorites');
+const { addReviews } = require('../controllers/addReviews');
 
 const router = Router();
 
@@ -39,5 +42,8 @@ router.get('/users/:id', getUserById);
 router.post('/mercadoPago', mercadoController);
 router.get('/feedback', responseMercado);
 router.put('/users/ban/:userId', banUser)
+router.post('/addFavorites' , addFavorites)
+router.post('/removeFavorites' , removeFavorites)
+router.post('/addReviews' , addReviews)
 
 module.exports = router;
