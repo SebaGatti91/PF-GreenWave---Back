@@ -118,7 +118,7 @@ const responseMercado = async (req, res) => {
 //   })
   
 //   if (status === "approved") {
-//     await user.addProduct(product)
+//     await user.addProduct(product, { through: { isPurchase: true } });
 //   }
 
   res.redirect('http://localhost:3000/homepage')
