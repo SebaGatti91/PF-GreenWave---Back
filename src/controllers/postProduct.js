@@ -1,7 +1,7 @@
 const { Product, Material } = require("../db");
 
 const postProduct = async (req, res) => {
-  const { name, image, stock, price, description, rating, materials } =
+  const { name, image, stock, price, description, rating, materials, userId } =
     req.body;
   try {
     if (
@@ -24,7 +24,8 @@ const postProduct = async (req, res) => {
       stock,
       price,
       description,
-      rating
+      rating, 
+      userId
     });
 
     const materialsRecords = await Material.findAll({ // Verificar si existen los materiales en la base de datos;
@@ -46,6 +47,7 @@ const postProduct = async (req, res) => {
     });
 
     return res.status(200).json({
+      userId: productWithMaterials.userId,
       id: productWithMaterials.id,
       name: productWithMaterials.name,
       image: productWithMaterials.image,
