@@ -2,7 +2,8 @@ const { Product } = require("../db");
 
 const putProduct = async (req, res) => {
   try {
-    const { id, name, image, stock, price, rating, description, materials } = req.body;
+    const { id } = req.params
+    const { name, image, stock, price, rating, description, materials } = req.body;
 
     const productFound = await Product.findByPk(id);
 

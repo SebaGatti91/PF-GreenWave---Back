@@ -23,7 +23,7 @@ router.post('/users', postUser);
 router.get('/store', getProducts);
 router.get('/store/:id', getProductsId);
 router.post('/products', postProduct);
-router.put('/products', putProduct);
+router.put('/products/:id', putProduct);
 router.delete('/store/:id', deleteProduct);
 router.get('/materials', getMaterials);
 router.post('/materials', postMaterial);
