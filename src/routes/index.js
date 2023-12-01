@@ -16,6 +16,7 @@ const { postPoint } = require('../controllers/postPoint');
 const { getUserById } = require('../controllers/getUsersById');
 const { mercadoController } = require('../controllers/mercadoController');
 const { responseMercado } = require('../controllers/responseMercado');
+const { banUser } = require ('../controllers/banUser')
 
 const router = Router();
 
@@ -37,6 +38,6 @@ router.post('/points', postPoint);
 router.get('/users/:id', getUserById);
 router.post('/mercadoPago', mercadoController);
 router.get('/feedback', responseMercado);
-
+router.put('/users/ban/:userId', banUser)
 
 module.exports = router;

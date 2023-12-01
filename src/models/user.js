@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, STRING } = require('sequelize');
 
 module.exports = (sequelize) => {
   sequelize.define(
@@ -12,6 +12,10 @@ module.exports = (sequelize) => {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      status: {
+        type: DataTypes.STRING,
+        allowNull:true
       },
       credits: {
         type: DataTypes.FLOAT,
