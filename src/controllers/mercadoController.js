@@ -13,10 +13,10 @@ const mercadoController = async (req, res) => {
 
   const productos = req.body;
    const items = productos.map((producto)=>({
-     title: producto.title,
-     unit_price: producto.price,
-     currency_id: "ARS",
-     quantity: producto.quantity,
+      title: producto.title,
+      unit_price: producto.unit_price,
+      currency_id: producto.currency_id,
+      quantity: producto.quantity,
    }))
 
   try {
