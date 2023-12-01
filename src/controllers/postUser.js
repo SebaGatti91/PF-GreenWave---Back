@@ -1,7 +1,7 @@
 const { User } = require("../db");
 
 const postUser = async (req, res) => {
-  const { name, email, image } = req.query;
+  const { name, email, image } = req.body;
 
   try {
     if (!email) {

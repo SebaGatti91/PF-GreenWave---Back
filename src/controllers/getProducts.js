@@ -26,6 +26,10 @@ const getProducts = async (req, res) => {
           through: { attributes: [] },
         },
       ],
+      where: {
+        paused: false, // Filtrar productos pausados;
+        deleted: false, // Filtrar productos eliminados;
+      },
     });
 
     const filteredDBProducts = productsFromDB.map((product) => ({
