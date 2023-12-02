@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes} = require('sequelize');
 
 module.exports = (sequelize) => {
   sequelize.define(
@@ -23,18 +23,11 @@ module.exports = (sequelize) => {
       },
       status: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: true,
-      },
-      admin: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
+        allowNull:true
       },
       credits: {
         type: DataTypes.FLOAT,
-        allowNull: true,
-        defaultValue: 0.0,
+        allowNull: false,
       }
     },
     {
@@ -42,3 +35,4 @@ module.exports = (sequelize) => {
     }
   );
 };
+
