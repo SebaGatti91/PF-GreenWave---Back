@@ -1,24 +1,21 @@
 const { Product, Material } = require("../db");
-const axios = require("axios");
-const URL = `https://ef38b114681e413e99d0dc06bc056b46.api.mockbin.io/`;
+const { products } = require("../apis/products.json");
 
 const getProducts = async (req, res) => {
   try {
-    const response = await axios.get(URL);
-    const { products } = response.data;
+    const product = products.map((product) => {
+      return {
+        name: product.name,
+        image: product.image,
+        stock: product.stock,
+        price: product.price,
+        description: product.description,
+        rating: product.rating,
+        materials: product.materials.join(", ")
+      };
+    });
 
-    const productsFromApi = await Promise.all(products.map((product) => ({
-      id: product.id,
-      name: product.name,
-      image: product.image,
-      stock: product.stock,
-      price: product.price,
-      description: product.description,
-      rating: product.rating,
-      materials: product.materials.join(", "),
-    })));
-
-    const productsFromDB = await Product.findAll({
+    let productsFromDB = await Product.findAll({
       include: [
         {
           model: Material,
@@ -32,18 +29,11 @@ const getProducts = async (req, res) => {
       },
     });
 
-    const filteredDBProducts = productsFromDB.map((product) => ({
-      id: product.id,
-      name: product.name,
-      image: product.image,
-      stock: product.stock,
-      price: product.price,
-      description: product.description,
-      rating: product.rating,
-      materials: product.Materials.map((material) => material.name).join(", "),
-    }));
+    if (productsFromDB.length === 0) {
+      productsFromDB = await Product.bulkCreate(product);
+    }
 
-    let allProducts = [...filteredDBProducts, ...productsFromApi];
+    let allProducts = [...productsFromDB];
 
     // Filtro por nombre
     if (req.query.name) {
