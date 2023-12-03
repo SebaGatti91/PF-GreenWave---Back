@@ -13,9 +13,28 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      username: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      image: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      status: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
+      },
+      admin: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
       credits: {
         type: DataTypes.FLOAT,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: 0.0,
       }
     },
     {
@@ -23,4 +42,3 @@ module.exports = (sequelize) => {
     }
   );
 };
-

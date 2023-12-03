@@ -16,27 +16,43 @@ const { postPoint } = require('../controllers/postPoint');
 const { getUserById } = require('../controllers/getUsersById');
 const { mercadoController } = require('../controllers/mercadoController');
 const { responseMercado } = require('../controllers/responseMercado');
+const { banUser } = require ('../controllers/banUser');
+const { addFavorites } = require('../controllers/addFavorites');
+const { removeFavorites } = require('../controllers/removeFavorites');
+const { addReviews } = require('../controllers/addReviews');
+const { getFavs } = require ('../controllers/getFavs')
 
 const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
+// GET
 router.get('/users', getUsers);
-router.post('/users', postUser);
+router.get('/users/:id', getUserById);
 router.get('/store', getProducts);
 router.get('/store/:id', getProductsId);
+router.get('/feedback', responseMercado);
+router.get('/materials', getMaterials);
+router.get('/points', getPoints);
+router.get('/getfavs/:id', getFavs)
+
+// POST
 router.post('/products', postProduct);
+router.post('/materials', postMaterial);
+router.post('/users', postUser);
+router.post('/points', postPoint);
+router.post('/mercadoPago', mercadoController);
+router.post('/addFavorites' , addFavorites)
+router.post('/removeFavorites' , removeFavorites)
+router.post('/addReviews' , addReviews)
+
+// PUT
 router.put('/products/:id', putProduct);
+router.put('/users/ban/:userId', banUser)
+
+// DELETE
 router.delete('/products/pause/:id', pauseProduct);
 router.delete('/products/delete/:id', deleteProduct);
-router.get('/materials', getMaterials);
-router.post('/materials', postMaterial);
-router.get('/points', getPoints);
-router.post('/points', postPoint);
-router.get('/users/:id', getUserById);
-router.post('/mercadoPago', mercadoController);
-router.get('/feedback', responseMercado);
-
 
 module.exports = router;

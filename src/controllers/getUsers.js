@@ -7,11 +7,12 @@ const getUsers = async (req, res) => {
     // Map the information of users from the JSON file
     const usersJSON = users.map((user) => {
       return {
-        name: user.name,
+        username: user.username,
         email: user.email,
         password: user.password,
         image: user.image,
         credits: user.credits,
+        status: true
       };
     });
 
