@@ -26,7 +26,7 @@ const mercadoController = async (req, res) => {
       external_reference: {userId : userId, productsId: productId}, // aqui podemos mandar el id del producto para generar cambios en la DB.
       items: items,
       back_urls: {
-        success: "https://greenwave-back.up.railway.app",
+        success: "https://greenwave-back.up.railway.app/feedback",
         failure: "https://pf-green-wave-front.vercel.app/feedback",
       },
 
