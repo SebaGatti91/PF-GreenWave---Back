@@ -1,3 +1,5 @@
+const { Router } = require('express');
+
 const { getUsers } = require('../controllers/getUsers');
 const { postUser } = require('../controllers/postUser');
 const { getProducts } = require('../controllers/getProducts');
