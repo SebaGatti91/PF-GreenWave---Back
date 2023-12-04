@@ -1,7 +1,7 @@
 const { Product, Material } = require("../db");
 
 const postProduct = async (req, res) => {
-  const { name, image, stock, price, description, rating, materials } =
+  const { name, image, stock, price, description, rating, materials, userId } =
     req.body;
   try {
     if (
@@ -20,6 +20,7 @@ const postProduct = async (req, res) => {
 
     const productCreated = await Product.create({
       name,
+      userId,
       image,
       stock,
       price,
