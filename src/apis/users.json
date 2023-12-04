@@ -1,51 +1,75 @@
 {
   "users": [
     {
+      "username": "George Bluth",
       "email": "george.bluth@reqres.in",
+      "image": "https://reqres.in/img/faces/1-image.jpg",
       "credits": 0
     },
     {
+      "username": "Janet Weaver",
       "email": "janet.weaver@reqres.in",
+      "image": "https://reqres.in/img/faces/2-image.jpg",
       "credits": 2.5
     },
     {
+      "username": "Emma Wong",
       "email": "emma.wong@reqres.in",
+      "image": "https://reqres.in/img/faces/3-image.jpg",
       "credits": 3.0
     },
     {
+      "username": "Eve Holt",
       "email": "eve.holt@reqres.in",
+      "image": "https://reqres.in/img/faces/4-image.jpg",
       "credits": 1.5
     },
     {
+      "username": "Charles Morris",
       "email": "charles.morris@reqres.in",
+      "image": "https://reqres.in/img/faces/5-image.jpg",
       "credits": 4.0
     },
     {
+      "username": "Tracey Ramos",
       "email": "tracey.ramos@reqres.in",
+      "image": "https://reqres.in/img/faces/6-image.jpg",
       "credits": 4.0
     },
     {
+      "username": "Michael Lawson",
       "email": "michael.lawson@reqres.in",
+      "image": "https://reqres.in/img/faces/7-image.jpg",
       "credits": 1.5
     },
     {
+      "username": "Lindsay Ferguson",
       "email": "lindsay.ferguson@reqres.in",
+      "image": "https://reqres.in/img/faces/8-image.jpg",
       "credits": 2.5
     },
     {
+      "username": "Tobias Funke",
       "email": "tobias.funke@reqres.in",
+      "image": "https://reqres.in/img/faces/9-image.jpg",
       "credits": 3.0
     },
     {
+      "username": "Byron Fields",
       "email": "byron.fields@reqres.in",
+      "image": "https://reqres.in/img/faces/10-image.jpg",
       "credits": 0
     },
     {
+      "username": "George Edwards",
       "email": "george.edwards@reqres.in",
+      "image": "https://reqres.in/img/faces/11-image.jpg",
       "credits": 0
     },
     {
+      "username": "Rachel Howell",
       "email": "rachel.howell@reqres.in",
+      "image": "https://reqres.in/img/faces/12-image.jpg",
       "credits": 0
     }
   ]

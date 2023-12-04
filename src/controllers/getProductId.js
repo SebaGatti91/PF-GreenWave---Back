@@ -1,4 +1,4 @@
-const { Product } = require("../db");
+const { Product, Review } = require("../db");
 const axios = require("axios");
 const URL = `https://ef38b114681e413e99d0dc06bc056b46.api.mockbin.io/`;
 
@@ -9,7 +9,11 @@ const getProductsId = async (req, res) => {
     const { products } = response.data;
 
     if (id.length > 5) {
-      const productFound = await Product.findByPk(id);
+      const productFound = await Product.findOne({where: {
+        id
+       },
+        include: Review
+      });
 
       if (productFound) {
         const materials = await productFound.getMaterials();
