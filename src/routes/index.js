@@ -33,6 +33,7 @@ router.get('/store/:id', getProductsId);
 router.get('/feedback', responseMercado);
 router.get('/materials', getMaterials);
 router.get('/points', getPoints);
+router.get('/feedback', responseMercado);
 router.get('/getfavs/:id', getFavs);
 router.get('/purchases/:id', getPurchases);
 
