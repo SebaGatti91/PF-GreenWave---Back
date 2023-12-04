@@ -3,19 +3,32 @@ const { products } = require("../apis/products.json");
 
 const getProducts = async (req, res) => {
   try {
-    const product = products.map((product) => {
-      return {
-        name: product.name,
-        image: product.image,
-        stock: product.stock,
-        price: product.price,
-        description: product.description,
-        rating: product.rating,
-        materials: product.materials.join(", ")
-      };
-    });
-
-    let productsFromDB = await Product.findAll({
+    for (const product of products) {
+      // Crear el producto en la base de datos
+      await Product.findOrCreate({
+        where: {
+          name: product.name,
+        },
+        defaults: {
+          name: product.name,
+          image: product.image,
+          stock: product.stock,
+          price: product.price,
+          description: product.description,
+          rating: product.rating,
+          Materials: product.materials.map((materialName) => ({
+            name: materialName,
+          })),
+        },
+        include: [
+          {
+            model: Material,
+            attributes: ["name"],
+          },
+        ],
+      });
+    }
+    let productWithoutMaterials = await Product.findAll({
       include: [
         {
           model: Material,
@@ -28,10 +41,10 @@ const getProducts = async (req, res) => {
         deleted: false, // Filtrar productos eliminados;
       },
     });
-
-    if (productsFromDB.length === 0) {
-      productsFromDB = await Product.bulkCreate(product);
-    }
+    const productsFromDB = productWithoutMaterials.map((product) => ({
+      ...product.toJSON(),
+      Materials: product.Materials.map((material) => material.name).join(", "),
+    }));
 
     let allProducts = [...productsFromDB];
 
@@ -46,8 +59,23 @@ const getProducts = async (req, res) => {
     // Filtro por material
     if (req.query.material) {
       const materialName = req.query.material.toLowerCase();
-      allProducts = allProducts.filter((product) =>
-        product.materials.toLowerCase().includes(materialName)
+
+      // Usar Promise.all para cargar todos los materiales de una vez
+      const productsWithMaterials = await Promise.all(
+        allProducts.map(async (product) => {
+          // Forzar la carga de la relación Materials
+          const materials = await product.getMaterials();
+
+          return {
+            ...product,
+            Materials: materials.map((material) => material.name).join(", "),
+          };
+        })
+      );
+
+      // Filtrar los productos basados en el nombre del material
+      allProducts = productsWithMaterials.filter((product) =>
+        product.Materials.toLowerCase().includes(materialName)
       );
     }
 
@@ -63,7 +91,7 @@ const getProducts = async (req, res) => {
         (product) => product.rating == req.query.filter
       );
     }
- 
+
     // Ordenamiento
     if (req.query.sort) {
       switch (req.query.sort) {
@@ -88,7 +116,6 @@ const getProducts = async (req, res) => {
     }
 
     return res.status(200).json(allProducts);
-    
   } catch (error) {
     return res.status(500).send(error.message);
   }
