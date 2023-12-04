@@ -7,70 +7,51 @@ const getProducts = async (req, res) => {
       return {
         name: product.name,
         image: product.image,
-        status: product.status,
+        stock: product.stock,
         price: product.price,
         description: product.description,
         rating: product.rating,
         materials: product.materials.join(", ")
       };
     });
-    // Consultar todos los productos en la base de datos
-    let productsFromDB = await Product.findAll();
 
-    // Verificar si no se encontraron productos
+    let productsFromDB = await Product.findAll({
+      include: [
+        {
+          model: Material,
+          attributes: ["name"],
+          through: { attributes: [] },
+        },
+      ],
+      where: {
+        paused: false, // Filtrar productos pausados;
+        deleted: false, // Filtrar productos eliminados;
+      },
+    });
+
     if (productsFromDB.length === 0) {
       productsFromDB = await Product.bulkCreate(product);
     }
 
+    let allProducts = [...productsFromDB];
+
     // Filtro por nombre
     if (req.query.name) {
       const searchName = req.query.name.toLowerCase();
-      productsFromDB = productsFromDB.filter((product) =>
+      allProducts = allProducts.filter((product) =>
         product.name.toLowerCase().startsWith(searchName)
       );
-      if (productsFromDB.length === 0) {
-        return res.status(404).json({ message: "Product not found" });
-      }
-      return res.status(200).json(productsFromDB);
     }
 
     // Filtro por material
     if (req.query.material) {
       const materialName = req.query.material.toLowerCase();
-      productsFromDB = productsFromDB.filter((product) =>
+      allProducts = allProducts.filter((product) =>
         product.materials.toLowerCase().includes(materialName)
       );
-      if (productsFromDB.length === 0) {
-        return res.status(404).json({ message: "Product not found" });
-      }
-      return res.status(200).json(productsFromDB);
     }
 
-    // Ordenamiento alfabetico ascendente
-    if (req.query.sort === "nameAsc") {
-      productsFromDB = productsFromDB.sort((a, b) =>
-        a.name.localeCompare(b.name)
-      );
-    }
-
-    // Ordenamiento alfabetico descendente
-    if (req.query.sort === "nameDesc") {
-      productsFromDB = productsFromDB.sort((a, b) =>
-        b.name.localeCompare(a.name)
-      );
-    }
-
-    // Ordenamiento por precio ascendente
-    if (req.query.sort === "priceAsc") {
-      productsFromDB = productsFromDB.sort((a, b) => a.price - b.price);
-    }
-
-    // Ordenamiento por precio descendente
-    if (req.query.sort === "priceDesc") {
-      productsFromDB = productsFromDB.sort((a, b) => b.price - a.price);
-    }
-
-    //Filtrado por rating
+    // Filtro por rating
     if (
       req.query.filter === "1" ||
       req.query.filter === "2" ||
@@ -78,12 +59,36 @@ const getProducts = async (req, res) => {
       req.query.filter === "4" ||
       req.query.filter === "5"
     ) {
-      productsFromDB = productsFromDB.filter(
+      allProducts = allProducts.filter(
         (product) => product.rating == req.query.filter
       );
     }
-    // Responder con los datos de todos los productos
-    return res.status(200).json(productsFromDB);
+ 
+    // Ordenamiento
+    if (req.query.sort) {
+      switch (req.query.sort) {
+        case "nameAsc":
+          allProducts = allProducts.sort((a, b) =>
+            a.name.localeCompare(b.name)
+          );
+          break;
+        case "nameDesc":
+          allProducts = allProducts.sort((a, b) =>
+            b.name.localeCompare(a.name)
+          );
+          break;
+        case "priceAsc":
+          allProducts = allProducts.sort((a, b) => a.price - b.price);
+          break;
+        case "priceDesc":
+          allProducts = allProducts.sort((a, b) => b.price - a.price);
+          break;
+        // Agregar más casos según sea necesario
+      }
+    }
+
+    return res.status(200).json(allProducts);
+    
   } catch (error) {
     return res.status(500).send(error.message);
   }

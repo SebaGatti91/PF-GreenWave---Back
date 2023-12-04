@@ -9,26 +9,32 @@ module.exports = (sequelize) => {
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4
       },
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      password: {
+      username: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       image: {
         type: DataTypes.STRING,
         allowNull: true,
       },
+      status: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true,
+      },
+      admin: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
       credits: {
         type: DataTypes.FLOAT,
-        allowNull: false,
-        default: 0,
+        allowNull: true,
+        defaultValue: 0.0,
       }
     },
     {
@@ -36,4 +42,3 @@ module.exports = (sequelize) => {
     }
   );
 };
-

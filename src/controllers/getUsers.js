@@ -3,14 +3,16 @@ const { users } = require("../apis/users.json");
 
 const getUsers = async (req, res) => {
   try {
+    
     // Map the information of users from the JSON file
     const usersJSON = users.map((user) => {
       return {
-        name: user.name,
+        username: user.username,
         email: user.email,
         password: user.password,
         image: user.image,
         credits: user.credits,
+        status: true
       };
     });
 
@@ -31,12 +33,12 @@ const getUsers = async (req, res) => {
         return res.status(404).json({ message: "Email not found" });
       }
 
-      // Verify the password
-      if (foundUser.password === req.query.password) {
-        return res.status(200).json(foundUser);
-      } else {
-        return res.status(404).json({ message: "Incorrect password" });
-      }
+      // // Verify the password
+      // if (foundUser.password === req.query.password) {
+      //   return res.status(200).json(foundUser);
+      // } else {
+      //   return res.status(404).json({ message: "Incorrect password" });
+      // }
     }
 
     // Respond with the data of all users
