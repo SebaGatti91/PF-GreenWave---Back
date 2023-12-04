@@ -13,19 +13,19 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      quantity: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        default: 0,
-      },
-      credit_value: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-      },
-      money_value: {
-        type: DataTypes.FLOAT,
-        allowNull: false,
-      }
+      // quantity: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      //   default: 0,
+      // },
+      // credit_value: {
+      //   type: DataTypes.FLOAT,
+      //   allowNull: false,
+      // },
+      // money_value: {
+      //   type: DataTypes.FLOAT,
+      //   allowNull: false,
+      // }
     },
     {
       timestamps: false
