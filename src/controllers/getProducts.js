@@ -60,7 +60,7 @@ const getProducts = async (req, res) => {
       );
     }
     
-    // Filtro por material
+    // Filtro por material 
     if (req.query.material) {
       const materialName = req.query.material.toLowerCase();
     
