@@ -1,24 +1,24 @@
 const { User, Product, UserProduct } = require("../db");
 
-const getFavs = async (req, res) => {
+const getPurchases = async (req, res) => {
   try {
     const { id } = req.params;
-
+    
     const userFound = await User.findByPk(id);
-
+    
     if (!userFound) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    const favoriteProducts = await UserProduct.findAll({
+    const purchasedProducts = await UserProduct.findAll({
       where: {
         UserId: userFound.id,
-        isFavorite: true,
+        isPurchase: true,
       },
       include: Product
     });
-
-    const onlyProducts = favoriteProducts.map((userProduct) => ({
+    
+    const onlyProducts = purchasedProducts.map((userProduct) => ({
       ...userProduct.Product.dataValues,
     }));
 
@@ -30,5 +30,5 @@ const getFavs = async (req, res) => {
 };
 
 module.exports = {
-  getFavs,
+  getPurchases,
 };
