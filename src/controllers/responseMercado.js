@@ -118,7 +118,7 @@ const responseMercado = async (req, res) => {
   })
 
    //await user.addProduct(product, { through: { isPurchase: true } });
-    return res.redirect('http://localhost:3000/successfully')
+    return res.redirect('https://pf-green-wave-front.vercel.app/successfully')
   }else{ 
     transporter.sendMail({
     from: `GreenWave ${process.env.EMAIL}`,
