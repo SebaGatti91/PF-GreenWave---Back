@@ -50,7 +50,7 @@ router.get('/store/:id', getProductsId);
 router.get('/materials', getMaterials);
 router.get('/points', getPoints);
 router.get('/feedback', responseMercado);
-router.get('/favorites/:id', getFavs);
+router.get('/getfavs/:id', getFavs);
 router.get('/purchases/:id', getPurchases);
 
 // POST;
