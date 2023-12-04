@@ -21,6 +21,9 @@ const { removeFavorites } = require('../controllers/removeFavorites');
 const { addReviews } = require('../controllers/addReviews');
 const { getFavs } = require ('../controllers/getFavorites');
 const { getPurchases } = require('../controllers/getPurchases');
+const { getUserProducts } = require("../controllers/getUserProducts")
+
+
 
 const router = Router();
 
@@ -38,6 +41,7 @@ router.get('/points', getPoints);
 router.get('/feedback', responseMercado);
 router.get('/getfavs/:id', getFavs);
 router.get('/purchases/:id', getPurchases);
+router.get("/getUserProducts/:id", getUserProducts);
 
 // POST
 router.post('/products', postProduct);
