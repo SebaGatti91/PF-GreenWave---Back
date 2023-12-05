@@ -2,7 +2,7 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-// const Reviews = require('./models/Reviews');
+
 //const { User } = require('mercadopago');
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_DEPLOY } = process.env;
 
@@ -58,7 +58,7 @@ Product.belongsToMany(Material, { through: 'material_product' });
 User.belongsToMany(Product, { through: 'UserProduct' });
 Product.belongsToMany(User, { through: 'UserProduct' });
 
-UserProduct.belongsTo(User);
+UserProduct.belongsTo(User); 
 UserProduct.belongsTo(Product);
 
 Product.hasMany(Review);
