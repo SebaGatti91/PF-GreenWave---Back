@@ -23,7 +23,8 @@ const { removeFavorites } = require('../controllers/removeFavorites');
 const { postReview } = require('../controllers/postReview');
 const { getFavs } = require ('../controllers/getFavs');
 const { getPurchases } = require('../controllers/getPurchases');
-const { getUserProducts } = require("../controllers/getUserProducts");
+const { getUserProducts } = require("../controllers/getUserProducts")
+const { putUser } = require("../controllers/putUsers")
 
 
 
@@ -57,6 +58,7 @@ router.post('/review' , postReview);
 // PUT
 router.put('/products/:id', putProduct);
 router.put('/users/ban/:userId', banUser);
+router.put('/users/update/:userId', putUser)
 
 // DELETE
 router.delete('/products/pause/:id', pauseProduct);
