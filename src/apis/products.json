@@ -6,7 +6,6 @@
       "stock": 50,
       "price": 500,
       "description": "A unique and sustainable bag made with recycled cardboard. This bag is not only stylish but also contributes to caring for the environment.",
-      "rating": 3,
       "materials": [
         "Paper and Cardboard",
         "Plastic",
@@ -19,7 +18,6 @@
       "stock": 50,
       "price": 100,
       "description": "With these eco-friendly cups made from recycled cardboard, every sip is a reminder of your commitment to a sustainable lifestyle.",
-      "rating": 5,
       "materials": [
         "Paper and Cardboard"
       ]
@@ -30,7 +28,6 @@
       "stock": 50,
       "price": 200,
       "description": "Light up your space with these beautiful lamps created from recycled bottles. Each lamp tells a unique story of reuse and creativity.",
-      "rating": 2,
       "materials": [
         "Glass",
         "Metals",
@@ -43,7 +40,6 @@
       "stock": 1,
       "price": 600,
       "description": "A unique and sturdy coffee table made from recycled wood. Perfect for those looking for environmentally conscious furniture.",
-      "rating": 4,
       "materials": [
         "Wood",
         "Metals"
@@ -55,7 +51,6 @@
       "stock": 2,
       "price": 300,
       "description": "This elegant chain made from recycled metal is a testament to style and sustainability. It looks good and helps the planet.",
-      "rating": 1,
       "materials": [
         "Metals",
         "Textiles"
@@ -67,7 +62,6 @@
       "stock": 50,
       "price": 50,
       "description": "These cup holders made with love and recycled wood add a rustic and sustainable touch to your space. Enjoy your drinks in style!",
-      "rating": 5,
       "materials": [
         "Glass",
         "Wood",
@@ -80,7 +74,6 @@
       "stock": 50,
       "price": 60,
       "description": "Organize your pencils sustainably with this pencil holder made from recycled cardboard. A practical accessory with a touch of eco-consciousness.",
-      "rating": 2,
       "materials": [
         "Paper and Cardboard",
         "Textiles"
@@ -92,7 +85,6 @@
       "stock": 50,
       "price": 100,
       "description": "This elegant and eco-friendly napkin holder, made from recycled fabrics, adds a touch of sophistication and sustainability to your table.",
-      "rating": 4,
       "materials": [
         "Paper and Cardboard",
         "Textiles"
@@ -104,7 +96,6 @@
       "stock": 50,
       "price": 800,
       "description": "A durable and modern backpack created from recycled parachute fabric. Ideal for carrying your belongings with style and sustainability.",
-      "rating": 3,
       "materials": [
         "Textiles",
         "Plastic",
@@ -117,7 +108,6 @@
       "stock": 50,
       "price": 120,
       "description": "Beautify your space with this elegant vase made from recycled glass bottles. Each vase is unique and contributes to the art of recycling.",
-      "rating": 1,
       "materials": [
         "Glass",
         "Wood",
@@ -130,7 +120,6 @@
       "stock": 50,
       "price": 250,
       "description": "Give a touch of originality to your home with this colorful rug made from recycled ties. A unique piece for your decoration.",
-      "rating": 4,
       "materials": [
         "Textiles"
       ]
@@ -141,7 +130,6 @@
       "stock": 50,
       "price": 350,
       "description": "Protect your laptop with style and environmental awareness with this case made from recycled fabric. Each case tells a unique advertising story.",
-      "rating": 5,
       "materials": [
         "Textiles",
         "Metals"
@@ -153,7 +141,6 @@
       "stock": 50,
       "price": 80,
       "description": "Organize your jewelry sustainably with this jewelry box made from recycled soda cans. A touch of creativity for your dresser.",
-      "rating": 2,
       "materials": [
         "Glass",
         "Textiles",
@@ -166,7 +153,6 @@
       "stock": 50,
       "price": 180,
       "description": "Keep your books in order with this stylish and functional stand made from recycled wood. A perfect addition to your sustainable library.",
-      "rating": 3,
       "materials": [
         "Wood"
       ]
@@ -177,7 +163,6 @@
       "stock": 50,
       "price": 200,
       "description": "Give a vintage touch to your home with this unique wall clock made from recycled vinyl records. A retro accessory with a modern twist.",
-      "rating": 1,
       "materials": [
         "Plastic",
         "Metals"
@@ -189,7 +174,6 @@
       "stock": 50,
       "price": 30,
       "description": "Enjoy your favorite drink in this eco-friendly mug made from recycled coconut shells. A sustainable choice for your moments of relaxation.",
-      "rating": 4,
       "materials": [
         "Wood"
       ]
@@ -200,7 +184,6 @@
       "stock": 50,
       "price": 50,
       "description": "Protect your glasses with style and environmental responsibility with this case made from recycled tires. A modern and ecological accessory.",
-      "rating": 2,
       "materials": [
         "Textiles",
         "Plastic"
@@ -212,7 +195,6 @@
       "stock": 50,
       "price": 40,
       "description": "Organize your space with this storage box made from recycled newspapers. A creative way to reuse information.",
-      "rating": 5,
       "materials": [
         "Paper and Cardboard",
         "Plastic",
@@ -225,7 +207,6 @@
       "stock": 50,
       "price": 90,
       "description": "Serve your meals in style on this unique tray made from recycled bottle caps. A mix of functionality and sustainability.",
-      "rating": 3,
       "materials": [
         "Plastic"
       ]
@@ -236,7 +217,6 @@
       "stock": 50,
       "price": 150,
       "description": "Add additional seating to your home with this stool made from recycled pallets. A combination of comfort and respect for the environment.",
-      "rating": 1,
       "materials": [
         "Wood"
       ]
@@ -247,7 +227,6 @@
       "stock": 50,
       "price": 120,
       "description": "Reflect your style with this unique mirror featuring a frame made from recycled CDs. A modern and eco-friendly work of art.",
-      "rating": 4,
       "materials": [
         "Glass",
         "Plastic"
@@ -259,7 +238,6 @@
       "stock": 50,
       "price": 20,
       "description": "Amuse your pet sustainably with this toy created from recycled plastic bottles. An eco-friendly gift for your furry friends.",
-      "rating": 5,
       "materials": [
         "Plastic"
       ]
@@ -270,7 +248,6 @@
       "stock": 50,
       "price": 400,
       "description": "Add a unique touch to your space with this chair made from recycled car tires. Comfort and sustainability in a single design.",
-      "rating": 3,
       "materials": [
         "Textiles",
         "Wood"
@@ -282,7 +259,6 @@
       "stock": 50,
       "price": 80,
       "description": "Light up your space with this creative chandelier made with recycled cutlery. A touch of originality for your special moments.",
-      "rating": 2,
       "materials": [
         "Plastic"
       ]
@@ -293,7 +269,6 @@
       "stock": 50,
       "price": 30,
       "description": "Do your shopping sustainably with this bag made from recycled advertising banners. A practical and ecological accessory.",
-      "rating": 4,
       "materials": [
         "Textiles"
       ]
@@ -304,7 +279,6 @@
       "stock": 50,
       "price": 25,
       "description": "Keep your space tidy with this functional trash can made from recycled cardboard. An economical and environmentally friendly option.",
-      "rating": 1,
       "materials": [
         "Paper and Cardboard"
       ]
