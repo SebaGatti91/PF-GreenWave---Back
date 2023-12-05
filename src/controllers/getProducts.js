@@ -1,33 +1,33 @@
 const { Product, Material } = require("../db");
-const { products } = require("../apis/products.json");
+// const { products } = require("../apis/products.json");
 
 const getProducts = async (req, res) => {
   try {
-    for (const product of products) {
-      const [createdProduct] = await Product.findOrCreate({
-        where: {
-          name: product.name,
-        },
-        defaults: {
-          name: product.name,
-          image: product.image,
-          stock: product.stock,
-          price: product.price,
-          description: product.description,
-          rating: product.rating,
-        },
-      });
+    // for (const product of products) {
+    //   const [createdProduct] = await Product.findOrCreate({
+    //     where: {
+    //       name: product.name,
+    //     },
+    //     defaults: {
+    //       name: product.name,
+    //       image: product.image,
+    //       stock: product.stock,
+    //       price: product.price,
+    //       description: product.description,
+    //       rating: product.rating,
+    //     },
+    //   });
 
-      // Asociar materiales al producto creado
-      await Promise.all(
-        product.materials.map(async (materialName) => {
-          const [material] = await Material.findOrCreate({
-            where: { name: materialName },
-          });
-          await createdProduct.addMaterial(material);
-        })
-      );
-    }
+    //   // Asociar materiales al producto creado
+    //   await Promise.all(
+    //     product.materials.map(async (materialName) => {
+    //       const [material] = await Material.findOrCreate({
+    //         where: { name: materialName },
+    //       });
+    //       await createdProduct.addMaterial(material);
+    //     })
+    //   );
+    // }
 
     // Consultar productos desde la base de datos con relaciones
     let productWithoutMaterials = await Product.findAll({
