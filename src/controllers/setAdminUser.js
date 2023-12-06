@@ -1,6 +1,6 @@
 const { User } = require('../db');
 
-const banUser = async (req, res) => {
+const setAdminUser = async (req, res) => {
   try {
     const { userId } = req.params;
 
@@ -10,16 +10,16 @@ const banUser = async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    const updatedStatus = !user.status;
+    const updatedAdmin = !user.admin;
 
-    await User.update({ status: updatedStatus }, { where: { id: userId } });
+    await User.update({ admin: updatedAdmin }, { where: { id: userId } });
 
-    return res.status(200).json(updatedStatus);
+    return res.status(200).json(updatedAdmin);
   } catch (error) {
     return res.status(500).send(error.message);
   }
 };
 
 module.exports = { 
-    banUser 
+    setAdminUser
 };
