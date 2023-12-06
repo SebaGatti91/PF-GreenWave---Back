@@ -1,4 +1,5 @@
 const { Product, Review, User } = require('../db');
+const { updateProductRating } = require('./updateProductRating')
 
 const postReview = async (req, res) => {
     try {
@@ -8,6 +9,10 @@ const postReview = async (req, res) => {
 
         if (!product) {
             return res.status(404).json({ message: 'Product not found' });
+        }
+
+        if (product.reviewedBy && product.reviewedBy.includes(userId)) {
+            return res.status(400).json({ message: 'You have already performed a review for this product' });
         }
 
         const user = await User.findOne({ where: { id: userId } });
@@ -26,10 +31,15 @@ const postReview = async (req, res) => {
             comment: comment
         });
 
+        const updatedReviewedBy = product.reviewedBy ? [...product.reviewedBy, userId] : [userId];
+        await Product.update({ reviewedBy: updatedReviewedBy }, { where: { id: productId } });
+
         await product.addReview(review);
 
+        await updateProductRating(productId);
+
         return res.status(200).json({ message: 'Review added successfully' });
-        
+
     } catch (error) {
         return res.status(500).send(error.message);
     }
