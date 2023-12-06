@@ -24,8 +24,9 @@ const { postReview } = require('../controllers/postReview');
 const { getFavs } = require ('../controllers/getFavs');
 const { getPurchases } = require('../controllers/getPurchases');
 const { getUserProducts } = require("../controllers/getUserProducts")
-const { putUser } = require("../controllers/putUsers")
-
+const { putUser } = require("../controllers/putUsers");
+const { setAdminUser } = require('../controllers/setAdminUser');
+const {getUserByEmail} = require('../controllers/getUserByEmail');
 
 
 const router = Router();
@@ -36,6 +37,7 @@ const router = Router();
 // GET
 router.get('/users', getUsers);
 router.get('/users/:id', getUserById);
+router.get('/users/email/:email', getUserByEmail);
 router.get('/store', getProducts);
 router.get('/store/:id', getProductById);
 router.get('/materials', getMaterials);
@@ -58,6 +60,7 @@ router.post('/review' , postReview);
 // PUT
 router.put('/products/:id', putProduct);
 router.put('/users/ban/:userId', banUser);
+router.put('/users/admin/:userId', setAdminUser);
 router.put('/users/update/:userId', putUser)
 
 // DELETE
