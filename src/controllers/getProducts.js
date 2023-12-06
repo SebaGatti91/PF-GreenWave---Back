@@ -1,34 +1,33 @@
 const { Product, Material } = require("../db");
-const { products } = require("../apis/products.json");
-const { getMaterials } = require("../controllers/getMaterials")
+// const { products } = require("../apis/products.json");
 
 const getProducts = async (req, res) => {
   try {
-    for (const product of products) {
-      const [createdProduct] = await Product.findOrCreate({
-        where: {
-          name: product.name,
-        },
-        defaults: {
-          name: product.name,
-          image: product.image,
-          stock: product.stock,
-          price: product.price,
-          description: product.description,
-          rating: product.rating,
-        },
-      });
+    // for (const product of products) {
+    //   const [createdProduct] = await Product.findOrCreate({
+    //     where: {
+    //       name: product.name,
+    //     },
+    //     defaults: {
+    //       name: product.name,
+    //       image: product.image,
+    //       stock: product.stock,
+    //       price: product.price,
+    //       description: product.description,
+    //       rating: product.rating,
+    //     },
+    //   });
 
-      // Asociar materiales al producto creado
-      await Promise.all(
-        product.materials.map(async (materialName) => {
-          const [material] = await Material.findOrCreate({
-            where: { name: materialName },
-          });
-          await createdProduct.addMaterial(material);
-        })
-      );
-    }
+    //   // Asociar materiales al producto creado
+    //   await Promise.all(
+    //     product.materials.map(async (materialName) => {
+    //       const [material] = await Material.findOrCreate({
+    //         where: { name: materialName },
+    //       });
+    //       await createdProduct.addMaterial(material);
+    //     })
+    //   );
+    // }
 
     // Consultar productos desde la base de datos con relaciones
     let productWithoutMaterials = await Product.findAll({
@@ -62,24 +61,9 @@ const getProducts = async (req, res) => {
     
     // Filtro por material 
     if (req.query.material) {
-      const materialName = req.query.material.toLowerCase();
-    
-      // Usar Promise.all para cargar todos los materiales de una vez
-      const productsWithMaterials = await Promise.all(
-        allProducts.map(async (product) => {
-          // Forzar la carga de la relación Materials
-          const materials = await product.getMaterials();
-    
-          return {
-            ...product,
-            Materials: materials.map((material) => material.name).join(", "),
-          };
-        })
-      );
-    
-      // Filtrar los productos basados en el nombre del material
-      allProducts = productsWithMaterials.filter((product) =>
-        product.Materials.toLowerCase().includes(materialName)
+      const searchMaterial = req.query.material.toLowerCase();
+      allProducts = allProducts.filter((product) =>
+        product.Materials.toLowerCase().includes(searchMaterial)
       );
     }
     
