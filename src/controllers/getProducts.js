@@ -1,35 +1,7 @@
 const { Product, Material } = require("../db");
-const { products } = require("../apis/products.json");
 
 const getProducts = async (req, res) => {
   try {
-    for (const product of products) {
-      const [createdProduct] = await Product.findOrCreate({
-        where: {
-          name: product.name,
-        },
-        defaults: {
-          name: product.name,
-          image: product.image,
-          stock: product.stock,
-          price: product.price,
-          description: product.description,
-          rating: product.rating,
-        },
-      });
-
-      // Asociar materiales al producto creado
-      await Promise.all(
-        product.materials.map(async (materialName) => {
-          const [material] = await Material.findOrCreate({
-            where: { name: materialName },
-          });
-          await createdProduct.addMaterial(material);
-        })
-      );
-    }
-
-    // Consultar productos desde la base de datos con relaciones
     let productWithoutMaterials = await Product.findAll({
       include: [
         {
@@ -79,6 +51,16 @@ const getProducts = async (req, res) => {
         (product) => product.rating == req.query.filter
       );
     }
+
+    // if (req.query.filter === "1-2") {
+    //   allProducts = allProducts.filter((product) => product.rating >= 1 && product.rating <= 2);
+    // } else if (req.query.filter === "2-3") {
+    //   allProducts = allProducts.filter((product) => product.rating >= 2 && product.rating <= 3);
+    // } else if (req.query.filter === "3-4") {
+    //   allProducts = allProducts.filter((product) => product.rating >= 3 && product.rating <= 4);
+    // } else if (req.query.filter === "4-5") {
+    //   allProducts = allProducts.filter((product) => product.rating >= 4 && product.rating <= 5);
+    // }
     
     // Ordenamiento
     if (req.query.sort) {
