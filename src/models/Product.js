@@ -39,6 +39,7 @@ module.exports = (sequelize) => {
       reviewedBy: {
         type: DataTypes.JSONB, 
         allowNull: true,
+        defaultValue: () => []
       },
       description: {
         type: DataTypes.STRING,
