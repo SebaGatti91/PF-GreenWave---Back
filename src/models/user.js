@@ -35,7 +35,19 @@ module.exports = (sequelize) => {
         type: DataTypes.FLOAT,
         allowNull: true,
         defaultValue: 0.0,
-      }
+      },
+      phone: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      adress: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      postalcode: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
     },
     {
       timestamps: false

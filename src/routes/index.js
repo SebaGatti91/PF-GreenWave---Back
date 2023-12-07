@@ -27,6 +27,8 @@ const { getUserProducts } = require("../controllers/getUserProducts")
 const { putUser } = require("../controllers/putUsers");
 const { setAdminUser } = require('../controllers/setAdminUser');
 const {getUserByEmail} = require('../controllers/getUserByEmail');
+const { addPurchase } = require('../controllers/addPurchase');
+// const { verifyToken } = require('../controllers/authjwt');
 
 
 const router = Router();
@@ -55,6 +57,7 @@ router.post('/points', postPoint);
 router.post('/mercadoPago', mercadoController);
 router.post('/addFavorites' , addFavorites);
 router.post('/removeFavorites' , removeFavorites);
+router.post("/addPurchase", addPurchase)
 router.post('/review' , postReview);
 
 // PUT
