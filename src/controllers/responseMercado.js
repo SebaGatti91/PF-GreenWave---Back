@@ -209,7 +209,7 @@ const responseMercado = async (req, res) => {
       </body>
     </html>`
     })
-    return res.redirect('https://pf-green-wave-front.vercel.app/successfully')
+    return res.redirect('https://pf-green-wave-front.vercel.app/homepage')
   }
 
 }
