@@ -1,7 +1,7 @@
 const { Product, Material } = require("../db");
 
 const postProduct = async (req, res) => {
-  const { name, image, stock, price, description, rating, materials, userId } =
+  const { name, image, stock, price, description, materials, userId } =
     req.body;
   try {
     if (
@@ -10,7 +10,6 @@ const postProduct = async (req, res) => {
       !stock ||
       !price ||
       !description ||
-      !rating ||
       !materials
     ) {
       return res.status(400).send("Insufficient data");
@@ -24,8 +23,7 @@ const postProduct = async (req, res) => {
       image,
       stock,
       price,
-      description,
-      rating, 
+      description, 
       userId
     });
 
