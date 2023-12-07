@@ -17,7 +17,6 @@ const putProduct = async (req, res) => {
         image: image || productFound.image,
         stock: stock || productFound.stock,
         price: price || productFound.price,
-        rating: rating || productFound.rating,
         description: description || productFound.description,
         materials: materials || productFound.materials,
         paused: false,
