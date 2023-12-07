@@ -18,15 +18,18 @@ const responseMercado = async (req, res) => {
   const datos = JSON.parse(external_reference)
 
   if (status === "approved") {
-  const user = await User.findOne({ where: { email: datos.userId } })
-  // const product = await Product.findAll({ where: {id: datos.productsId}});
+   const user = await User.findOne({ where: { email: datos.userId } })
+   const product = await Product.findAll({ where: {id: datos.productsId}});
 
-  //   await Product.update(
-  //    { stock: Sequelize.literal(`stock - 1`) }, // Restar la cantidad del stock
-  //    { where: { id: datos.productsId } }
-  // );
+   for (const update of datos.update) {
+     const { id, quantity } = update;
+     await Product.update(
+       { stock: Sequelize.literal(`stock - ${quantity}`) },
+       { where: { id } }
+     );
+   }
 
-  transporter.sendMail({
+   transporter.sendMail({
     from: `GreenWave ${process.env.EMAIL}`,
     to: datos.userId,
     subject: "Thanks for your purchase",
@@ -115,9 +118,8 @@ const responseMercado = async (req, res) => {
         </div>
       </body>
     </html>`
-  })
-
-   //await user.addProduct(product, { through: { isPurchase: true } });
+   })
+    await user.addProduct(product, { through: { isPurchase: true } });
     return res.redirect('https://pf-green-wave-front.vercel.app/successfully')
   }else{ 
     transporter.sendMail({
@@ -206,8 +208,8 @@ const responseMercado = async (req, res) => {
         </div>
       </body>
     </html>`
-  })
-
+    })
+    return res.redirect('https://pf-green-wave-front.vercel.app/successfully')
   }
 
 }
