@@ -14,7 +14,6 @@ const productsCreate = async () => {
           stock: product.stock,
           price: product.price,
           description: product.description,
-          rating: product.rating,
         },
       });
 
@@ -28,7 +27,7 @@ const productsCreate = async () => {
         })
       );
     }  
-    return("se crearon todo bien pa")
+    return("se crearon bien pa")
     // return res.status(200).json({ message: 'Products successfully created' });
   } catch (error) {
     // return res.status(500).send(error.message);
