@@ -3,7 +3,10 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 
 const { getUsers } = require('../controllers/getUsers');
+const { getUserById } = require('../controllers/getUserById');
 const { postUser } = require('../controllers/postUser');
+const { putUser } = require("../controllers/putUsers");
+const { banUser } = require('../controllers/banUser');
 const { getProducts } = require('../controllers/getProducts');
 const { getProductById } = require('../controllers/getProductById');
 const { postProduct } = require('../controllers/postProduct');
@@ -14,12 +17,14 @@ const { getMaterials } = require('../controllers/getMaterials');
 const { postMaterial } = require('../controllers/postMaterial');
 const { getPoints } = require('../controllers/getPoints');
 const { postPoint } = require('../controllers/postPoint');
-const { getUserById } = require('../controllers/getUserById');
 const { mercadoController } = require('../controllers/mercadoController');
 const { responseMercado } = require('../controllers/responseMercado');
-const { banUser } = require ('../controllers/banUser');
+const { getPurchases } = require('../controllers/getPurchases');
+const { getUserProducts } = require("../controllers/getUserProducts");
+const { getFavs } = require('../controllers/getFavs');
 const { addFavorites } = require('../controllers/addFavorites');
 const { removeFavorites } = require('../controllers/removeFavorites');
+const { getReviews } = require('../controllers/getReviews');
 const { postReview } = require('../controllers/postReview');
 const { getFavs } = require ('../controllers/getFavs');
 const { getPurchases } = require('../controllers/getPurchases');
@@ -32,6 +37,8 @@ const { postDonation } = require('../controllers/postDonation');
 const { getDonation } = require('../controllers/getDonationByUserId');
 // const { verifyToken } = require('../controllers/authjwt');
 
+const { putReview } = require('../controllers/putReview');
+const { deleteReview } = require('../controllers/deleteReview');
 
 const router = Router();
 
@@ -50,6 +57,7 @@ router.get('/feedback', responseMercado);
 router.get('/getfavs/:id', getFavs);
 router.get('/purchases/:id', getPurchases);
 router.get("/getUserProducts/:id", getUserProducts);
+router.get('/reviews/:productId', getReviews)
 router.get("/getDonation/:id", getDonation);
 
 // POST
@@ -58,20 +66,22 @@ router.post('/materials', postMaterial);
 router.post('/users', postUser);
 router.post('/points', postPoint);
 router.post('/mercadoPago', mercadoController);
-router.post('/addFavorites' , addFavorites);
-router.post('/removeFavorites' , removeFavorites);
+router.post('/addFavorites', addFavorites);
+router.post('/removeFavorites', removeFavorites);
 router.post("/addPurchase", addPurchase)
-router.post('/review' , postReview);
+router.post('/reviews', postReview);
 router.post('/donation', postDonation)
 
 // PUT
 router.put('/products/:id', putProduct);
 router.put('/users/ban/:userId', banUser);
 router.put('/users/admin/:userId', setAdminUser);
-router.put('/users/update/:userId', putUser)
+router.put('/users/update/:userId', putUser);
+router.put('/reviews/:productId/:reviewId', putReview);
 
 // DELETE
 router.delete('/products/pause/:id', pauseProduct);
 router.delete('/products/delete/:id', deleteProduct);
+router.delete('/reviews/:productId/:reviewId', deleteReview);
 
 module.exports = router;

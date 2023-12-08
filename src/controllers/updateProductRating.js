@@ -1,11 +1,11 @@
 const { Product, Review } = require('../db');
 
 const updateProductRating = async (productId) => {
-    try {
+    try { 
         const productFound = await Product.findByPk(productId, {
             include: {
                 model: Review,
-                attributes: ['rating'],
+                attributes: ['rating', 'deleted'],
             },
         });
 
@@ -15,15 +15,18 @@ const updateProductRating = async (productId) => {
 
         const reviews = productFound.Reviews;
 
-        if (reviews.length === 0) {
+        const validReviews = reviews.filter(review => !review.deleted);
+
+        if (validReviews.length === 0) {
             await Product.update({ rating: 0 }, { where: { id: productId } });
+            return 0;
         }
 
-        const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+        const totalRating = validReviews.reduce((sum, review) => sum + review.rating, 0);
 
-        const averageRating = totalRating / reviews.length;
+        const averageRating = totalRating / validReviews.length;
 
-        const roundedAverageRating = Number(averageRating.toFixed(1));
+        const roundedAverageRating = averageRating.toFixed(1).toString();
 
         await Product.update({ rating: roundedAverageRating }, { where: { id: productId } });
 

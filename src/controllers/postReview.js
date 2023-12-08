@@ -1,5 +1,5 @@
 const { Product, Review, User } = require('../db');
-const { updateProductRating } = require('./updateProductRating')
+const { updateProductRating } = require('./updateProductRating');
 
 const postReview = async (req, res) => {
     try {
