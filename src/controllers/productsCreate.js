@@ -28,11 +28,9 @@ const productsCreate = async () => {
         })
       );
     }  
-    return("se crearon todo bien pa")
-    // return res.status(200).json({ message: 'Products successfully created' });
+    return('Products successfully created');
   } catch (error) {
-    // return res.status(500).send(error.message);
-    return ("F")
+    throw new Error(error.message);
   }
 };
 
