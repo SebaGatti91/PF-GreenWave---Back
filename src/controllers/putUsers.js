@@ -3,7 +3,7 @@ const { User } = require('../db');
 const putUser = async (req, res) => {
   try {
     const { userId } = req.params;
-    const { username, image } = req.body;
+    const { username, image, phone, address, postalCode } = req.body;
 
     const user = await User.findByPk(userId);
 
@@ -14,6 +14,9 @@ const putUser = async (req, res) => {
     await user.update({
       username: username || user.username,
       image: image || user.image,
+      phone: phone || user.phone,
+      address: address || user.adress,
+      postalCode: postalCode || user.postalcode
     });
 
     return res.status(200).json(user);

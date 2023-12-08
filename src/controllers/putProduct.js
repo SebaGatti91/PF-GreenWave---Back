@@ -3,7 +3,7 @@ const { Product } = require("../db");
 const putProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, image, stock, price, rating, description, materials } = req.body;
+    const { name, image, stock, price, description, materials } = req.body;
 
     const productFound = await Product.findByPk(id);
 
@@ -17,7 +17,6 @@ const putProduct = async (req, res) => {
         image: image || productFound.image,
         stock: stock || productFound.stock,
         price: price || productFound.price,
-        rating: rating || productFound.rating,
         description: description || productFound.description,
         materials: materials || productFound.materials,
         paused: false,
@@ -31,7 +30,6 @@ const putProduct = async (req, res) => {
       image: image || productFound.image,
       stock: stock || productFound.stock,
       price: price || productFound.price,
-      rating: rating || productFound.rating,
       description: description || productFound.description,
       materials: materials || productFound.materials,
     });

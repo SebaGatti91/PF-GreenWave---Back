@@ -26,6 +26,17 @@ const { addFavorites } = require('../controllers/addFavorites');
 const { removeFavorites } = require('../controllers/removeFavorites');
 const { getReviews } = require('../controllers/getReviews');
 const { postReview } = require('../controllers/postReview');
+const { getFavs } = require ('../controllers/getFavs');
+const { getPurchases } = require('../controllers/getPurchases');
+const { getUserProducts } = require("../controllers/getUserProducts")
+const { putUser } = require("../controllers/putUsers");
+const { setAdminUser } = require('../controllers/setAdminUser');
+const {getUserByEmail} = require('../controllers/getUserByEmail');
+const { addPurchase } = require('../controllers/addPurchase');
+const { postDonation } = require('../controllers/postDonation');
+const { getDonation } = require('../controllers/getDonationByUserId');
+// const { verifyToken } = require('../controllers/authjwt');
+
 const { putReview } = require('../controllers/putReview');
 const { deleteReview } = require('../controllers/deleteReview');
 
@@ -37,6 +48,7 @@ const router = Router();
 // GET
 router.get('/users', getUsers);
 router.get('/users/:id', getUserById);
+router.get('/users/email/:email', getUserByEmail);
 router.get('/store', getProducts);
 router.get('/store/:id', getProductById);
 router.get('/materials', getMaterials);
@@ -46,6 +58,7 @@ router.get('/getfavs/:id', getFavs);
 router.get('/purchases/:id', getPurchases);
 router.get("/getUserProducts/:id", getUserProducts);
 router.get('/reviews/:productId', getReviews)
+router.get("/getDonation/:id", getDonation);
 
 // POST
 router.post('/products', postProduct);
@@ -55,11 +68,14 @@ router.post('/points', postPoint);
 router.post('/mercadoPago', mercadoController);
 router.post('/addFavorites', addFavorites);
 router.post('/removeFavorites', removeFavorites);
+router.post("/addPurchase", addPurchase)
 router.post('/reviews', postReview);
+router.post('/donation', postDonation)
 
 // PUT
 router.put('/products/:id', putProduct);
 router.put('/users/ban/:userId', banUser);
+router.put('/users/admin/:userId', setAdminUser);
 router.put('/users/update/:userId', putUser);
 router.put('/reviews/:productId/:reviewId', putReview);
 

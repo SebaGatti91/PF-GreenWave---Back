@@ -14,7 +14,6 @@ const productsCreate = async () => {
           stock: product.stock,
           price: product.price,
           description: product.description,
-          rating: product.rating,
         },
       });
 
