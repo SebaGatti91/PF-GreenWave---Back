@@ -30,11 +30,8 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       rating: {
-        type: DataTypes.FLOAT,
-        defaultValue: 0,
-        validate: {
-          isDecimal: true,
-        },
+        type: DataTypes.STRING,
+        defaultValue: "0.0",
       },
       reviewedBy: {
         type: DataTypes.JSONB, 
