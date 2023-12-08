@@ -28,6 +28,8 @@ const { putUser } = require("../controllers/putUsers");
 const { setAdminUser } = require('../controllers/setAdminUser');
 const {getUserByEmail} = require('../controllers/getUserByEmail');
 const { addPurchase } = require('../controllers/addPurchase');
+const { postDonation } = require('../controllers/postDonation');
+const { getDonation } = require('../controllers/getDonationByUserId');
 // const { verifyToken } = require('../controllers/authjwt');
 
 
@@ -48,6 +50,7 @@ router.get('/feedback', responseMercado);
 router.get('/getfavs/:id', getFavs);
 router.get('/purchases/:id', getPurchases);
 router.get("/getUserProducts/:id", getUserProducts);
+router.get("/getDonation/:id", getDonation);
 
 // POST
 router.post('/products', postProduct);
@@ -59,6 +62,7 @@ router.post('/addFavorites' , addFavorites);
 router.post('/removeFavorites' , removeFavorites);
 router.post("/addPurchase", addPurchase)
 router.post('/review' , postReview);
+router.post('/donation', postDonation)
 
 // PUT
 router.put('/products/:id', putProduct);
