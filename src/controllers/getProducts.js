@@ -10,10 +10,10 @@ const getProducts = async (req, res) => {
           through: { attributes: [] },
         },
       ],
-      where: {
-        paused: false, // Filtrar productos pausados;
-        deleted: false, // Filtrar productos eliminados;
-      },
+      // where: {
+      //   paused: false, // Filtrar productos pausados;
+      //   deleted: false, // Filtrar productos eliminados;
+      // },
     });
 
     const productsFromDB = productWithoutMaterials.map((product) => ({
@@ -22,7 +22,7 @@ const getProducts = async (req, res) => {
     }));
 
     let allProducts = [...productsFromDB];
-    
+
     // Filtro por nombre
     if (req.query.name) {
       const searchName = req.query.name.toLowerCase();
@@ -30,7 +30,7 @@ const getProducts = async (req, res) => {
         product.name.toLowerCase().startsWith(searchName)
       );
     }
-    
+
     // Filtro por material 
     if (req.query.material) {
       const searchMaterial = req.query.material.toLowerCase();
@@ -38,30 +38,7 @@ const getProducts = async (req, res) => {
         product.Materials.toLowerCase().includes(searchMaterial)
       );
     }
-    
-    // Filtro por rating
-    if (
-      req.query.filter === "1" ||
-      req.query.filter === "2" ||
-      req.query.filter === "3" ||
-      req.query.filter === "4" ||
-      req.query.filter === "5"
-    ) {
-      allProducts = allProducts.filter(
-        (product) => product.rating == req.query.filter
-      );
-    }
 
-    // if (req.query.filter === "1-2") {
-    //   allProducts = allProducts.filter((product) => product.rating >= 1 && product.rating <= 2);
-    // } else if (req.query.filter === "2-3") {
-    //   allProducts = allProducts.filter((product) => product.rating >= 2 && product.rating <= 3);
-    // } else if (req.query.filter === "3-4") {
-    //   allProducts = allProducts.filter((product) => product.rating >= 3 && product.rating <= 4);
-    // } else if (req.query.filter === "4-5") {
-    //   allProducts = allProducts.filter((product) => product.rating >= 4 && product.rating <= 5);
-    // }
-    
     // Ordenamiento
     if (req.query.sort) {
       switch (req.query.sort) {
@@ -94,4 +71,3 @@ module.exports = { getProducts };
 
 
 
-   

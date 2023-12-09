@@ -13,10 +13,10 @@ const transporter = nodemailer.createTransport({
 
 const postDonation = async (req, res) => {
     try {
-        const {nameMaterial,description,email,postalCode,addres,quantity, userId } = req.body;
+        const {nameMaterial,description,email,postalCode,address,quantity, userId, phone } = req.body;
 
         const userFound = await User.findOne({ where: { id: userId } });
-        const donation = await Donation.create({nameMaterial,description,email,postalCode,addres,quantity})
+        const donation = await Donation.create({nameMaterial, description, email, postalCode, address, quantity, phone})
 
         await userFound.addDonations(donation)
 

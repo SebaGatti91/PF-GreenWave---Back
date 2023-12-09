@@ -4,6 +4,11 @@ module.exports = (sequelize) => {
   sequelize.define(
     'Review',
     {
+      id: {
+        type: DataTypes.UUID,
+        primaryKey: true,
+        defaultValue: DataTypes.UUIDV4,
+      },
       userId: {
         type: DataTypes.STRING,
         allowNull: false
@@ -23,6 +28,14 @@ module.exports = (sequelize) => {
       comment: {
         type: DataTypes.STRING,
         allowNull: true,
+      },
+      deleted: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
       },
     },
     {
