@@ -1,5 +1,5 @@
 const { productsCreate } = require('./src/controllers/productsCreate.js');
-const { getUsers } = require('./src/controllers/getUsers.js');
+const { createUsers } = require("./src/controllers/createUsers.js");
 
 require("dotenv").config();
 const server = require("./src/app.js");
@@ -11,7 +11,7 @@ const port = process.env.PORT || 3001;
 conn.sync({ force: false }).then(() => {
   server.listen(port, async() => {
     await productsCreate();
-    await getUsers()
+    await createUsers();
     console.log(`Server raised in port ${port}`); // eslint-disable-line no-console
   });
 });
