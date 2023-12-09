@@ -73,9 +73,9 @@ router.put('/users/ban/:userId', banUser);
 router.put('/users/admin/:userId', setAdminUser);
 router.put('/users/update/:userId', putUser);
 router.put('/reviews/:productId/:reviewId', putReview);
+router.put('/products/pause/:id', pauseProduct);
 
 // DELETE
-router.delete('/products/pause/:id', pauseProduct);
 router.delete('/products/delete/:id', deleteProduct);
 router.delete('/reviews/:productId/:reviewId', deleteReview);
 
