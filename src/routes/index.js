@@ -26,17 +26,12 @@ const { addFavorites } = require('../controllers/addFavorites');
 const { removeFavorites } = require('../controllers/removeFavorites');
 const { getReviews } = require('../controllers/getReviews');
 const { postReview } = require('../controllers/postReview');
-// const { getFavs } = require ('../controllers/getFavs');
-// const { getPurchases } = require('../controllers/getPurchases');
-// const { getUserProducts } = require("../controllers/getUserProducts")
-// const { putUser } = require("../controllers/putUsers");
 const { setAdminUser } = require('../controllers/setAdminUser');
 const {getUserByEmail} = require('../controllers/getUserByEmail');
 const { addPurchase } = require('../controllers/addPurchase');
 const { postDonation } = require('../controllers/postDonation');
 const { getDonation } = require('../controllers/getDonationByUserId');
 // const { verifyToken } = require('../controllers/authjwt');
-
 const { putReview } = require('../controllers/putReview');
 const { deleteReview } = require('../controllers/deleteReview');
 
