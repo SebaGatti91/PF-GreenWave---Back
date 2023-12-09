@@ -1,24 +1,8 @@
 const { User, UserProduct, Product } = require("../db");
-const { users } = require("../apis/users.json");
 
 const getUsers = async (req, res) => {
   try {
-    const usersJSON = users.map((user) => {
-      return {
-        username: user.username,
-        email: user.email,
-        password: user.password,
-        image: user.image,
-        credits: user.credits,
-        status: user.status,
-      };
-    });
-
     let usersDB = await User.findAll();
-
-    if (usersDB.length === 0) {
-      usersDB = await User.bulkCreate(usersJSON);
-    }
 
     let usersWithPurchases = await Promise.all(
       usersDB.map(async (user) => {
@@ -44,8 +28,6 @@ const getUsers = async (req, res) => {
         };
       })
     );
-
-
 
     return res.status(200).json(usersWithPurchases);
   } catch (error) {
