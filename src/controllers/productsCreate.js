@@ -10,7 +10,7 @@ const productsCreate = async () => {
         },
         defaults: {
           name: product.name,
-          image: product.image,
+          image:  Array.isArray(product.image) ? product.image : [product.image],
           stock: product.stock,
           price: product.price,
           description: product.description,
