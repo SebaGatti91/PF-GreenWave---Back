@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       image: {
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
       stock: {
@@ -44,7 +44,7 @@ module.exports = (sequelize) => {
       },
       paused: {
         type: DataTypes.BOOLEAN,
-        defaultValue: false,
+        defaultValue: true,
       },
       deleted: {
         type: DataTypes.BOOLEAN,
