@@ -26,17 +26,12 @@ const { addFavorites } = require('../controllers/addFavorites');
 const { removeFavorites } = require('../controllers/removeFavorites');
 const { getReviews } = require('../controllers/getReviews');
 const { postReview } = require('../controllers/postReview');
-// const { getFavs } = require ('../controllers/getFavs');
-// const { getPurchases } = require('../controllers/getPurchases');
-// const { getUserProducts } = require("../controllers/getUserProducts")
-// const { putUser } = require("../controllers/putUsers");
 const { setAdminUser } = require('../controllers/setAdminUser');
-const {getUserByEmail} = require('../controllers/getUserByEmail');
+const { getUserByEmail } = require('../controllers/getUserByEmail');
 const { addPurchase } = require('../controllers/addPurchase');
 const { postDonation } = require('../controllers/postDonation');
 const { getDonation } = require('../controllers/getDonationByUserId');
 // const { verifyToken } = require('../controllers/authjwt');
-
 const { putReview } = require('../controllers/putReview');
 const { deleteReview } = require('../controllers/deleteReview');
 
@@ -78,9 +73,9 @@ router.put('/users/ban/:userId', banUser);
 router.put('/users/admin/:userId', setAdminUser);
 router.put('/users/update/:userId', putUser);
 router.put('/reviews/:productId/:reviewId', putReview);
+router.put('/products/pause/:id', pauseProduct);
 
 // DELETE
-router.delete('/products/pause/:id', pauseProduct);
 router.delete('/products/delete/:id', deleteProduct);
 router.delete('/reviews/:productId/:reviewId', deleteReview);
 
