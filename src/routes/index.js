@@ -48,7 +48,7 @@ router.get('/store', getProducts);
 router.get('/store/:id', getProductById);
 router.get('/materials', getMaterials);
 router.get('/points', getPoints);
-router.get('/feedback', responseMercado);
+router.post('/feedback', responseMercado);
 router.get('/getfavs/:id', getFavs);
 router.get('/purchases/:id', getPurchases);
 router.get("/getUserProducts/:id", getUserProducts);
