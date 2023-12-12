@@ -12,32 +12,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const responseMercado = async (req, res) => {
+const getMercadoFail = async (req, res) => {
   try {
-    const products = req.body;
-
-    // Obtener userId del primer objeto en el array
-    const userId = products[0].userId;
-
-    // Obtener array de ids
-    const arrayOfIds = products.map((obj) => obj.id);
-
-    // Obtener información del usuario
-    const user = await User.findOne({ where: { email: userId } });
-
-    // Actualizar el stock de productos
-    for (const product of products) {
-      const { id, count } = product;
-      await Product.update(
-        { stock: Sequelize.literal(`stock - ${count}`) },
-        { where: { id } }
-      );
-    }
+    const { status, external_reference } = req.query;
+    const datos = JSON.parse(external_reference)
 
     // Enviar correo electrónico
     await transporter.sendMail({
       from: `GreenWave ${process.env.EMAIL}`,
-      to: userId,
+      to: datos.userId,
       subject: "Thanks for your purchase",
       html: `
     <html lang="en">
@@ -123,20 +106,15 @@ const responseMercado = async (req, res) => {
 
         </div>
       </body>
-    </html>`
-   })
-
-   // Asociar productos al usuario como comprados
-   const purchasedProducts = await Product.findAll({ where: { id: arrayOfIds } });
-   await user.addProduct(purchasedProducts, { through: { isPurchase: true } });
-
-   res.status(200).json({ message: "Purchase successful" });
- } catch (error) {
-   console.error(error);
-   res.status(500).json({ error: "Internal Server Error" });
- }
+    </html>`,
+    });
+    return res.redirect('https://localhost:3001/homepage')
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 };
 
 module.exports = {
- responseMercado,
+  getMercadoFail,
 };
