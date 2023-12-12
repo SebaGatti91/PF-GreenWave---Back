@@ -49,7 +49,6 @@ router.get('/store', getProducts);
 router.get('/store/:id', getProductById);
 router.get('/materials', getMaterials);
 router.get('/points', getPoints);
-router.post('/feedback', responseMercado);
 router.get('/getfavs/:id', getFavs);
 router.get('/purchases/:id', getPurchases);
 router.get("/getUserProducts/:id", getUserProducts);
@@ -68,6 +67,7 @@ router.post('/removeFavorites', removeFavorites);
 router.post("/addPurchase", addPurchase)
 router.post('/reviews', postReview);
 router.post('/donation', postDonation)
+router.post('/feedback', responseMercado);
 
 // PUT
 router.put('/products/:id', putProduct);
