@@ -44,7 +44,7 @@ module.exports = (sequelize) => {
       },
       paused: {
         type: DataTypes.BOOLEAN,
-        defaultValue: true,
+        defaultValue: false,
       },
       deleted: {
         type: DataTypes.BOOLEAN,
