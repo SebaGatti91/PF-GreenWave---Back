@@ -34,6 +34,7 @@ const { getDonation } = require('../controllers/getDonationByUserId');
 // const { verifyToken } = require('../controllers/authjwt');
 const { putReview } = require('../controllers/putReview');
 const { deleteReview } = require('../controllers/deleteReview');
+const { getMercadoFail} = require('../controllers/getMercadoFail');
 
 const router = Router();
 
@@ -48,12 +49,13 @@ router.get('/store', getProducts);
 router.get('/store/:id', getProductById);
 router.get('/materials', getMaterials);
 router.get('/points', getPoints);
-router.get('/feedback', responseMercado);
+router.post('/feedback', responseMercado);
 router.get('/getfavs/:id', getFavs);
 router.get('/purchases/:id', getPurchases);
 router.get("/getUserProducts/:id", getUserProducts);
 router.get('/reviews/:productId', getReviews)
 router.get("/getDonation/:id", getDonation);
+router.get("/failMp", getMercadoFail);
 
 // POST
 router.post('/products', postProduct);
