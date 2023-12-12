@@ -1,4 +1,4 @@
-const { User, Product } = require("../db");
+const { User, Product, UserProduct } = require("../db");
 const { Sequelize } = require("sequelize");
 const nodemailer = require("nodemailer");
 
@@ -123,20 +123,31 @@ const responseMercado = async (req, res) => {
 
         </div>
       </body>
-    </html>`
-   })
+    </html>`,
+    });
 
-   // Asociar productos al usuario como comprados
-   const purchasedProducts = await Product.findAll({ where: { id: arrayOfIds } });
-   await user.addProduct(purchasedProducts, { through: { isPurchase: true } });
+    // Asociar productos al usuario como comprados
+    const purchasedProducts = await Product.findAll({
+      where: { id: arrayOfIds },
+    });
+    await user.addProduct(purchasedProducts, { through: { isPurchase: true } });
 
-   res.status(200).json({ message: "Purchase successful" });
- } catch (error) {
-   console.error(error);
-   res.status(500).json({ error: "Internal Server Error" });
- }
+    // Actualizar el stock de productos
+    for (const product of products) {
+      const { id, count } = product;
+      await UserProduct.update(
+        { quantity: Sequelize.literal(`${count} + quantity`) },
+        { where: { ProductId: product.id } }
+      );
+    }
+
+    res.status(200).json({ message: "Purchase successful" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 };
 
 module.exports = {
- responseMercado,
+  responseMercado,
 };

@@ -13,7 +13,7 @@ const updateQuantityes = async (req, res) => {
     // Verificar si el material existe
     if (material) {
       // Sumar la cantidad de materiales
-      const newQuantityMaterials = material.quantity + parseint(materialToAdd, 10);
+      const newQuantityMaterials = material.quantity + parseInt(materialToAdd, 10);
       
       // Actualizar el campo 'quantity'
       await Material.update(
