@@ -108,7 +108,7 @@ const getMercadoFail = async (req, res) => {
           </body>
         </html>`,
     });
-    return res.redirect('https://localhost:3001/homepage')
+    return res.redirect('https://pf-green-wave-front.vercel.app/homepage')
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
