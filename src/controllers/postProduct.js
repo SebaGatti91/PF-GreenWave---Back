@@ -15,7 +15,7 @@ const postProduct = async (req, res) => {
       return res.status(400).send("Insufficient data");
     }
 
-    const materialsArray = materials.split(", ").map((material) => material.trim());
+    const materialsArray = materials.map((material) => material.trim());
 
     const productCreated = await Product.create({
       name,
