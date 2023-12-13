@@ -137,17 +137,18 @@ const responseMercado = async (req, res) => {
       const { id, count } = product;
       await UserProduct.update(
         { quantity: Sequelize.literal(`${count} + quantity`) },
-        { where: { ProductId: product.id } }
+        { where: { ProductId: product.id, UserId: user.id } }
       );
     }
+    
     for (const product of products) {
       const { id, userId } = product;
       await UserProduct.update(
-        { createdByUser: Sequelize.literal(userId) },
-        { where: { ProductId: product.id } }
+        { createdByUser: Sequelize.literal(`'${userId}'`) },
+        { where: { ProductId: id } }
       );
     }
-
+    
     res.status(200).json({ message: "Purchase successful" });
   } catch (error) {
     console.error(error);
