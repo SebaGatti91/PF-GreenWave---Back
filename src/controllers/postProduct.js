@@ -53,7 +53,7 @@ const postProduct = async (req, res) => {
       price: productWithMaterials.price,
       description: productWithMaterials.description,
       rating: productWithMaterials.rating,
-      materials: productWithMaterials.Materials.map((material) => material.name).join(", "),
+      materials: productWithMaterials.Materials.map((material) => material.name).join(", ")
     });
   } catch (error) {
     return res.status(500).send(error.message);
