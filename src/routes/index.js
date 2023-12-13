@@ -57,7 +57,7 @@ router.get("/getUserProducts/:id", getUserProducts);
 router.get('/reviews/:productId', getReviews)
 router.get("/getDonation/:id", getDonation);
 router.get("/failMp", getMercadoFail);
-router.get("/getSoldProducts", getSoldProducts);
+router.get("/getSoldProducts/:userId", getSoldProducts);
 
 // POST
 router.post('/products', postProduct);
