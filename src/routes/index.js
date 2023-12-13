@@ -35,6 +35,7 @@ const { getDonation } = require('../controllers/getDonationByUserId');
 const { putReview } = require('../controllers/putReview');
 const { deleteReview } = require('../controllers/deleteReview');
 const { getMercadoFail} = require('../controllers/getMercadoFail');
+const { approvedProduct } = require("../controllers/approvedProduct");
 
 const router = Router();
 
@@ -76,6 +77,7 @@ router.put('/users/admin/:userId', setAdminUser);
 router.put('/users/update/:userId', putUser);
 router.put('/reviews/:productId/:reviewId', putReview);
 router.put('/products/pause/:id', pauseProduct);
+router.put("/products/approve/:id", approvedProduct);
 
 // DELETE
 router.delete('/products/delete/:id', deleteProduct);
