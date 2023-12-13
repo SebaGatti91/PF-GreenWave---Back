@@ -35,6 +35,7 @@ const { getDonation } = require('../controllers/getDonationByUserId');
 const { putReview } = require('../controllers/putReview');
 const { deleteReview } = require('../controllers/deleteReview');
 const { getMercadoFail} = require('../controllers/getMercadoFail');
+const { approvedProduct } = require("../controllers/approvedProduct");
 
 const router = Router();
 
@@ -49,7 +50,6 @@ router.get('/store', getProducts);
 router.get('/store/:id', getProductById);
 router.get('/materials', getMaterials);
 router.get('/points', getPoints);
-router.post('/feedback', responseMercado);
 router.get('/getfavs/:id', getFavs);
 router.get('/purchases/:id', getPurchases);
 router.get("/getUserProducts/:id", getUserProducts);
@@ -68,6 +68,7 @@ router.post('/removeFavorites', removeFavorites);
 router.post("/addPurchase", addPurchase)
 router.post('/reviews', postReview);
 router.post('/donation', postDonation)
+router.post('/feedback', responseMercado);
 
 // PUT
 router.put('/products/:id', putProduct);
@@ -76,6 +77,7 @@ router.put('/users/admin/:userId', setAdminUser);
 router.put('/users/update/:userId', putUser);
 router.put('/reviews/:productId/:reviewId', putReview);
 router.put('/products/pause/:id', pauseProduct);
+router.put("/products/approve/:id", approvedProduct);
 
 // DELETE
 router.delete('/products/delete/:id', deleteProduct);
