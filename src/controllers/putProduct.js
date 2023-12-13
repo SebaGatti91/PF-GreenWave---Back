@@ -19,6 +19,7 @@ const putProduct = async (req, res) => {
       description: description || productFound.description,
       materials: materials || productFound.materials,
       paused: true,
+      approved: false,
     });
     return res.status(200).json({ message: 'Publication successfully modified pending review' });
   } catch (error) {
