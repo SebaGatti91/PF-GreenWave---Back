@@ -22,7 +22,6 @@ module.exports = (sequelize) => {
       createdByUser: {
         type: DataTypes.STRING,
         allowNull: true,
-        defaultValue: false,
       }
     },
 
