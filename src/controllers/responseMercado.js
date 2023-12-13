@@ -132,11 +132,18 @@ const responseMercado = async (req, res) => {
     });
     await user.addProduct(purchasedProducts, { through: { isPurchase: true } });
 
-    // Actualizar el stock de productos
+    // Actualizar el stock de productos comprados
     for (const product of products) {
       const { id, count } = product;
       await UserProduct.update(
         { quantity: Sequelize.literal(`${count} + quantity`) },
+        { where: { ProductId: product.id } }
+      );
+    }
+    for (const product of products) {
+      const { id, userId } = product;
+      await UserProduct.update(
+        { createdByUser: Sequelize.literal(userId) },
         { where: { ProductId: product.id } }
       );
     }
