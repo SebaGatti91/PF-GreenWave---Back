@@ -19,15 +19,17 @@ const mercadoController = async (req, res) => {
       currency_id: producto.currency_id,
       quantity: producto.quantity,
    }))
-
+   
   try {
     const preference = {
       body:{
-      external_reference: {userId : userId, productsId: productId}, // aqui podemos mandar el id del producto para generar cambios en la DB.
+      external_reference: {userId : userId}, // aqui podemos mandar el id del producto para generar cambios en la DB.
       items: items,
       back_urls: {
-        success: "https://greenwave-back.up.railway.app/feedback",
-        failure: "https://pf-green-wave-front.vercel.app/feedback",
+        // success: "https://pf-green-wave-front.vercel.app/successfully",
+        // failure: "https://pf-green-wave-front.vercel.app/feedback",
+        success: "https://greenwave-henry.vercel.app/successfully",
+        failure: "http://localhost:3001/failMp",
       },
 
       auto_return: "approved",

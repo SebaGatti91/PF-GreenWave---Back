@@ -1,7 +1,7 @@
 const { User } = require("../db");
 
 const postUser = async (req, res) => {
-  const { email } = req.body;
+  const { email, name, image } = req.body;
 
   try {
     if (!email) {
@@ -12,6 +12,8 @@ const postUser = async (req, res) => {
     const [user, userCreated] = await User.findOrCreate({
       where: { email }, // Búsqueda basada en el email
       defaults: {
+        username: name,
+        image: image,
         email,
         credits: 0,
         status: true

@@ -1,21 +1,8 @@
 const { Product, Material } = require("../db");
-const { products } = require("../apis/products.json");
 
 const getProducts = async (req, res) => {
   try {
-    const product = products.map((product) => {
-      return {
-        name: product.name,
-        image: product.image,
-        stock: product.stock,
-        price: product.price,
-        description: product.description,
-        rating: product.rating,
-        materials: product.materials.join(", ")
-      };
-    });
-
-    let productsFromDB = await Product.findAll({
+    let productWithoutMaterials = await Product.findAll({
       include: [
         {
           model: Material,
@@ -23,15 +10,16 @@ const getProducts = async (req, res) => {
           through: { attributes: [] },
         },
       ],
-      where: {
-        paused: false, // Filtrar productos pausados;
-        deleted: false, // Filtrar productos eliminados;
-      },
+      // where: {
+      //   paused: false, // Filtrar productos pausados;
+      //   deleted: false, // Filtrar productos eliminados;
+      // },
     });
 
-    if (productsFromDB.length === 0) {
-      productsFromDB = await Product.bulkCreate(product);
-    }
+    const productsFromDB = productWithoutMaterials.map((product) => ({
+      ...product.toJSON(),
+      Materials: product.Materials.map((material) => material.name).join(", "),
+    }));
 
     let allProducts = [...productsFromDB];
 
@@ -43,27 +31,14 @@ const getProducts = async (req, res) => {
       );
     }
 
-    // Filtro por material
+    // Filtro por material 
     if (req.query.material) {
-      const materialName = req.query.material.toLowerCase();
+      const searchMaterial = req.query.material.toLowerCase();
       allProducts = allProducts.filter((product) =>
-        product.materials.toLowerCase().includes(materialName)
+        product.Materials.toLowerCase().includes(searchMaterial)
       );
     }
 
-    // Filtro por rating
-    if (
-      req.query.filter === "1" ||
-      req.query.filter === "2" ||
-      req.query.filter === "3" ||
-      req.query.filter === "4" ||
-      req.query.filter === "5"
-    ) {
-      allProducts = allProducts.filter(
-        (product) => product.rating == req.query.filter
-      );
-    }
- 
     // Ordenamiento
     if (req.query.sort) {
       switch (req.query.sort) {
@@ -83,15 +58,16 @@ const getProducts = async (req, res) => {
         case "priceDesc":
           allProducts = allProducts.sort((a, b) => b.price - a.price);
           break;
-        // Agregar más casos según sea necesario
       }
     }
 
     return res.status(200).json(allProducts);
-    
   } catch (error) {
     return res.status(500).send(error.message);
   }
 };
 
 module.exports = { getProducts };
+
+
+

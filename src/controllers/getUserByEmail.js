@@ -1,10 +1,10 @@
 const { User, Product, UserProduct } = require("../db");
 
-const getUserById = async (req, res) => {
+const getUserByEmail = async (req, res) => {
   try {
 
-    const { id } = req.params;
-    const userFound = await User.findOne({ where: { email: id } });
+    const { email } = req.params;
+    const userFound = await User.findOne({ where: { email: email } });
 
     const userProducts = await Product.findAll({
       where: { userId: userFound.id }
@@ -42,5 +42,5 @@ const getUserById = async (req, res) => {
 };
 
 module.exports = {
-  getUserById,
+  getUserByEmail,
 };

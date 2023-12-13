@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       image: {
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
       stock: {
@@ -30,14 +30,23 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       rating: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        type: DataTypes.STRING,
+        defaultValue: "0.0",
+      },
+      reviewedBy: {
+        type: DataTypes.JSONB, 
+        allowNull: true,
+        defaultValue: () => []
       },
       description: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       paused: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+      },
+      approved: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
