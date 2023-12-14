@@ -29,7 +29,7 @@ const mercadoController = async (req, res) => {
         // success: "https://pf-green-wave-front.vercel.app/successfully",
         // failure: "https://pf-green-wave-front.vercel.app/feedback",
         success: "https://greenwave-henry.vercel.app/successfully",
-        failure: "http://greenwave-back.up.railway.app/failMp",
+        failure: "https://greenwave-back.up.railway.app/failMp",
       },
 
       auto_return: "approved",
