@@ -36,6 +36,7 @@ const { putReview } = require('../controllers/putReview');
 const { deleteReview } = require('../controllers/deleteReview');
 const { getMercadoFail} = require('../controllers/getMercadoFail');
 const { approvedProduct } = require("../controllers/approvedProduct");
+const { getSoldProducts } = require('../controllers/getSoldProducts');
 
 const router = Router();
 
@@ -56,6 +57,7 @@ router.get("/getUserProducts/:id", getUserProducts);
 router.get('/reviews/:productId', getReviews)
 router.get("/getDonation/:id", getDonation);
 router.get("/failMp", getMercadoFail);
+router.get("/getSoldProducts/:userId", getSoldProducts);
 
 // POST
 router.post('/products', postProduct);
