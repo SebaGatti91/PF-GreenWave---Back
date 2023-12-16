@@ -97,8 +97,9 @@ const responseMercado = async (req, res) => {
       </head>
       <body>
         <div class="content">
+        
           <h1 style="text-align: center">
-          Thank you for your purchase!
+          Thanks for your purchase!
             <hr />
           </h1>
 
@@ -130,7 +131,7 @@ const responseMercado = async (req, res) => {
 
         </div>
       </body>
-    </html>`,
+    </html>`
     });
 
     // Asociar productos al usuario como comprados
@@ -157,8 +158,8 @@ const responseMercado = async (req, res) => {
     }
     
     res.status(200).json({ message: "Purchase successful" });
+
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
