@@ -21,7 +21,7 @@ const getProductById = async (req, res) => {
 
     const materialsString = materials.map(material => material.name).join(", ");
 
-    productFromDB.materials = materialsString;
+    productFromDB.Materials = materialsString;
 
     return res.status(200).json(productFromDB);
 
