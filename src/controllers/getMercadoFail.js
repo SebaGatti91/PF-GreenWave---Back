@@ -1,5 +1,3 @@
-const { User, Product } = require("../db");
-const { Sequelize } = require("sequelize");
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
@@ -21,8 +19,8 @@ const getMercadoFail = async (req, res) => {
     await transporter.sendMail({
       from: `GreenWave ${process.env.EMAIL}`,
       to: datos.userId,
-      subject: "purchase was not approved",
-      html:`<!DOCTYPE html>
+      subject: "Purchase was not approved",
+      html: `<!DOCTYPE html>
       <html lang="en">
         <head>
           <meta charset="UTF-8" />
@@ -84,28 +82,35 @@ const getMercadoFail = async (req, res) => {
             ⛔Your purchase was not approved⛔
               <hr />
             </h1>
-    <section>
+
+            <section>
               <h3>
-              We invite you to consult directly with Mercado Pago. 
+              We invite you to inquire about your Mercado Pago account.
               </h3>
               <p>
-              We are sorry, but your purchase could not be completed at this time. There may be a problem with the information provided or with the payment authorization. We invite you to review the details of your purchase and try again. If the problem persists, please contact our customer service for assistance. We appreciate your understanding and patience.
+              We are sorry, but your purchase could not be completed at this time.
+              There may be a problem with the information you provided or with your payment authorization. 
+              We invite you to review the details of your purchase and try again. 
+              If the problem persists, please contact our customer service for assistance.
+              Thanks for your understanding and patience.
               </p>
               <br />
-              <h3>¡Gracias por unirte a nosotros!</h3>
+              <h3>Thanks for joining us!</h3>
             </section>
-   <img
+
+          <img
             class="logo"
             src="https://media.discordapp.net/attachments/1172286566689939527/1174431440478412841/Green_Wave.png?ex=657a0683&is=65679183&hm=786fe24053b53605b7c58d75b2e386e2c25ebeadb8c662545e631b4f2c2ad6a7&=&format=webp&quality=lossless&width=269&height=212"
             alt="Urian-Viera Logo" /> 
+
          </div>
         </body>
       </html>`
-    })
-  
-    return res.redirect('https://greenwave-henry.vercel.app/store')
+    });
+
+    return res.redirect('https://greenwave-henry.vercel.app/store');
+
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
