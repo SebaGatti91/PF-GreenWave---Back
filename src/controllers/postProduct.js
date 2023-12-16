@@ -1,7 +1,7 @@
 const { Product, Material } = require("../db");
 
 const postProduct = async (req, res) => {
-  const { name, image, stock, price, description, materials, userId } =
+  const { name, image, stock, price, description, Materials, userId } =
     req.body;
   try {
     if (
@@ -10,12 +10,12 @@ const postProduct = async (req, res) => {
       !stock ||
       !price ||
       !description ||
-      !materials
+      !Materials
     ) {
       return res.status(400).send("Insufficient data");
     }
 
-    const materialsArray = materials.map((material) => material.trim());
+    const materialsArray = Materials.map((material) => material.trim());
 
     const productCreated = await Product.create({
       name,
@@ -53,7 +53,7 @@ const postProduct = async (req, res) => {
       price: productWithMaterials.price,
       description: productWithMaterials.description,
       rating: productWithMaterials.rating,
-      materials: productWithMaterials.Materials.map((material) => material.name).join(", "),
+      Materials: productWithMaterials.Materials.map((material) => material.name).join(", ")
     });
   } catch (error) {
     return res.status(500).send(error.message);
