@@ -28,7 +28,7 @@ const mercadoController = async (req, res) => {
       back_urls: {
         // success: "https://pf-green-wave-front.vercel.app/successfully",
         // failure: "https://pf-green-wave-front.vercel.app/feedback",
-        success: "https://greenwave-henry.vercel.app/successfully",
+        success: "http://localhost:3000/successfully",
         failure: "https://greenwave-back.up.railway.app/failMp",
       },
 
