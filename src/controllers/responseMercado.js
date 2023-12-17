@@ -97,23 +97,31 @@ const responseMercado = async (req, res) => {
       </head>
       <body>
         <div class="content">
+        
           <h1 style="text-align: center">
-          Thank you for your purchase!
+          Thanks for your purchase!
             <hr />
           </h1>
 
           <section>
             <h3>
-            We are happy that you think of the country as we do.
+            We are happy that you think of the world as we do.
             </h3>
             <p>
-            We are excited to have you here and hope you enjoy our product.
-            our product. We will soon be expanding our sales further, I cordially invite you to keep
-            you to be aware of all our updates and news.
-            updates and news.
+              We are happy that you think of the world as we do.
+              We are excited to have you here and hope you enjoy our product. We will soon be expanding our sales further, I cordially invite you to keep you to be aware of all our updates and news. updates and news.
             </p>
+
+            <p>
+              We are delighted that your perspective aligns with ours, and we sincerely appreciate your enthusiasm for our product. Your presence here is a source of excitement for us, and we trust that your experience with our product will be nothing short of exceptional.
+            </p>
+
+            <p>
+              Thank you for being a part of our community, and we are committed to delivering an enriching experience as we move forward together. 
+            </p>
+
             <br />
-            <h3>Thank you for joining us!</h3>
+            <h3>Sincerely yours, Green Wave.</h3>
           </section>
 
         <img
@@ -123,7 +131,7 @@ const responseMercado = async (req, res) => {
 
         </div>
       </body>
-    </html>`,
+    </html>`
     });
 
     // Asociar productos al usuario como comprados
@@ -150,8 +158,8 @@ const responseMercado = async (req, res) => {
     }
     
     res.status(200).json({ message: "Purchase successful" });
+
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };

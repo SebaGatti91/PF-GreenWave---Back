@@ -1,13 +1,13 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    'User',
+    "User",
     {
       id: {
         type: DataTypes.UUID,
         primaryKey: true,
-        defaultValue: DataTypes.UUIDV4
+        defaultValue: DataTypes.UUIDV4,
       },
       email: {
         type: DataTypes.STRING,
@@ -40,6 +40,14 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
+      country: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      city: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
       address: {
         type: DataTypes.STRING,
         allowNull: true,
@@ -50,7 +58,7 @@ module.exports = (sequelize) => {
       },
     },
     {
-      timestamps: false
+      timestamps: false,
     }
   );
 };

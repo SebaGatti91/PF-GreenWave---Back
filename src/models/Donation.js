@@ -1,12 +1,12 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   sequelize.define(
-    'Donation',
+    "Donation",
     {
       nameMaterial: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       description: {
         type: DataTypes.STRING,
@@ -20,11 +20,19 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-     address: {
+      country: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-     quantity: {
+      city: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      quantity: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
@@ -34,7 +42,7 @@ module.exports = (sequelize) => {
       },
     },
     {
-      timestamps: false
+      timestamps: false,
     }
   );
 };

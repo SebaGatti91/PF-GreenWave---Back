@@ -6,9 +6,9 @@ const getProductById = async (req, res) => {
 
     const productFound = await Product.findOne({
       where: {
-        id: id
+        id: id,
       },
-      include: Review
+      include: Review,
     });
 
     if (!productFound) {
@@ -19,12 +19,13 @@ const getProductById = async (req, res) => {
 
     const productFromDB = productFound.toJSON();
 
-    const materialsString = materials.map(material => material.name).join(", ");
+    const materialsString = materials
+      .map((material) => material.name)
+      .join(", ");
 
     productFromDB.materials = materialsString;
 
     return res.status(200).json(productFromDB);
-
   } catch (error) {
     return res.status(500).send(error.message);
   }

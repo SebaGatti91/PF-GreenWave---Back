@@ -1,30 +1,51 @@
-const { User, Donation } = require('../db');
-const nodemailer = require('nodemailer');
+const { User, Donation } = require("../db");
+const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-     port: 587,
-     secure: false, 
-     auth: {
-       user: process.env.EMAIL,
-       pass: process.env.PASSWORD,
-     },
- });
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+});
 
 const postDonation = async (req, res) => {
-    try {
-        const {nameMaterial,description,email,postalCode,address,quantity, userId, phone } = req.body;
+  try {
+    const {
+      nameMaterial,
+      description,
+      email,
+      postalCode,
+      address,
+      quantity,
+      userId,
+      phone,
+      country,
+      city,
+    } = req.body;
 
-        const userFound = await User.findOne({ where: { id: userId } });
-        const donation = await Donation.create({nameMaterial, description, email, postalCode, address, quantity, phone})
+    const userFound = await User.findOne({ where: { id: userId } });
+    const donation = await Donation.create({
+      nameMaterial,
+      description,
+      email,
+      postalCode,
+      address,
+      quantity,
+      phone,
+      country,
+      city,
+    });
 
-        await userFound.addDonations(donation)
+    await userFound.addDonations(donation);
 
-        transporter.sendMail({
-            from: `GreenWave ${process.env.EMAIL}`,
-            to: email,
-            subject: "Thanks for your Donation",
-            html:`<!DOCTYPE html>
+    transporter.sendMail({
+      from: `GreenWave ${process.env.EMAIL}`,
+      to: email,
+      subject: "Thanks for your Donation",
+      html: `<!DOCTYPE html>
             <html lang="en">
               <head>
                 <meta charset="UTF-8" />
@@ -56,20 +77,20 @@ const postDonation = async (req, res) => {
                   .logo {
                     position: absolute;
                     bottom: 0;
-                    right: 0;
+                    right: 30px;
                     margin: 10px;
                     width: 150px;
-                    margin-right: 50px;
+                    
                   }
                   h1 {
                     color: #22b5a0;
                     padding: 30px 5px;
                   }
                   h3 {
-                    text-align: center;
+                    text-align: left;
                   }
                   section {
-                    padding: 5px 50px;
+                    padding: 5px 2n0px;
                   }
                   p {
                     text-align: justify;
@@ -83,19 +104,40 @@ const postDonation = async (req, res) => {
               <body>
                 <div class="content">
                   <h1 style="text-align: center">
-                  Thank you for your Donation!
+                    Thank you for your commitment to recycling!
                     <hr />
                   </h1>
             
                   <section>
-                    <h3>
-                    We are happy that you think of the country as we do.
-                    </h3>
                     <p>
-                    Thank you, we will give this material that you provide us a second chance and thus we will make the planet cleaner.
+                      We sincerely appreciate your generous donation of recyclable materials. Your contribution is a
+                      valuable step towards the preservation of our environment.
                     </p>
+
+                    <p>
+                      To facilitate the collection process, we ask that you sort the materials into green bags. This will
+                      help us separate and collect the different types of materials more efficiently.
+                    </p>
+
+                    <p>
+                      Once you've organized your donations, we invite you to visit your nearest recycling collection. 
+                      You can find the location most convenient for you by calling our customer service
+                      at 202-555-0128. We are available to answer your questions or concerns Monday
+                      through Saturday, from 9 a.m. to 10 p.m.
+                    </p>
+                    
+                    <p>
+                      Once again, we thank you for your dedication to the cause of recycling and look forward to
+                      your continued support in the future.
+                    </p>
+
                     <br />
-                    <h3>Thank you for joining us!</h3>
+                    <h3>
+                      Together we make the world a greener place!
+                    </h3>
+                    <h3>
+                    Sincerely yours, Green Wave.
+                    </h3>
                   </section>
                   
                 <img
@@ -105,15 +147,14 @@ const postDonation = async (req, res) => {
                      
                 </div>
               </body>
-            </html>`
-        })
-        return res.status(200).send(donation)
-
-    } catch (error) {
-        return res.status(500).send(error.message);
-    }
+            </html>`,
+    });
+    return res.status(200).send(donation);
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
 };
 
 module.exports = {
-    postDonation
+  postDonation,
 };
