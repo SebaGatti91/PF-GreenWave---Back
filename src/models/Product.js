@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
       },
       userId: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: true,
       },
       name: {
         type: DataTypes.STRING,
@@ -34,9 +34,9 @@ module.exports = (sequelize) => {
         defaultValue: "0.0",
       },
       reviewedBy: {
-        type: DataTypes.JSONB, 
+        type: DataTypes.JSONB,
         allowNull: true,
-        defaultValue: () => []
+        defaultValue: () => [],
       },
       description: {
         type: DataTypes.STRING,
@@ -44,7 +44,7 @@ module.exports = (sequelize) => {
       },
       paused: {
         type: DataTypes.BOOLEAN,
-        defaultValue: false,
+        defaultValue: true,
       },
       approved: {
         type: DataTypes.BOOLEAN,

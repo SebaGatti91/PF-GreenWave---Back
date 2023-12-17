@@ -1,30 +1,51 @@
-const { User, Donation } = require('../db');
-const nodemailer = require('nodemailer');
+const { User, Donation } = require("../db");
+const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-     port: 587,
-     secure: false, 
-     auth: {
-       user: process.env.EMAIL,
-       pass: process.env.PASSWORD,
-     },
- });
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+});
 
 const postDonation = async (req, res) => {
-    try {
-        const {nameMaterial,description,email,postalCode,address,quantity, userId, phone } = req.body;
+  try {
+    const {
+      nameMaterial,
+      description,
+      email,
+      postalCode,
+      address,
+      quantity,
+      userId,
+      phone,
+      country,
+      city,
+    } = req.body;
 
-        const userFound = await User.findOne({ where: { id: userId } });
-        const donation = await Donation.create({nameMaterial, description, email, postalCode, address, quantity, phone})
+    const userFound = await User.findOne({ where: { id: userId } });
+    const donation = await Donation.create({
+      nameMaterial,
+      description,
+      email,
+      postalCode,
+      address,
+      quantity,
+      phone,
+      country,
+      city,
+    });
 
-        await userFound.addDonations(donation)
+    await userFound.addDonations(donation);
 
-        transporter.sendMail({
-            from: `GreenWave ${process.env.EMAIL}`,
-            to: email,
-            subject: "Thanks for your Donation",
-            html:`<!DOCTYPE html>
+    transporter.sendMail({
+      from: `GreenWave ${process.env.EMAIL}`,
+      to: email,
+      subject: "Thanks for your Donation",
+      html: `<!DOCTYPE html>
             <html lang="en">
               <head>
                 <meta charset="UTF-8" />
@@ -126,15 +147,14 @@ const postDonation = async (req, res) => {
                      
                 </div>
               </body>
-            </html>`
-        })
-        return res.status(200).send(donation)
-
-    } catch (error) {
-        return res.status(500).send(error.message);
-    }
+            </html>`,
+    });
+    return res.status(200).send(donation);
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
 };
 
 module.exports = {
-    postDonation
+  postDonation,
 };
