@@ -1,4 +1,4 @@
-const { Product, Material } = require("../db");
+const { Product, Material, User } = require("../db");
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
@@ -14,17 +14,19 @@ const transporter = nodemailer.createTransport({
 const putProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, image, stock, price, description, Materials } = req.body;
+    const { name, image, stock, price, description, materials } = req.body;
 
     const productFound = await Product.findByPk(id);
 
     if (!productFound) {
-      return res.status(404).json({ error: 'Product not found' });
+      return res.status(404).json({ error: "Product not found" });
     }
 
     const userId = productFound.userId;
+    const userFound = await User.findByPk(userId);
 
-    await productFound.update({ // Realizar la actualización del producto y pausarlo;
+    await productFound.update({
+      // Realizar la actualización del producto y pausarlo;
       name: name || productFound.name,
       image: image || productFound.image,
       stock: stock || productFound.stock,
@@ -34,25 +36,28 @@ const putProduct = async (req, res) => {
       approved: false,
     });
 
-    if (Materials) {
-      if (!Array.isArray(Materials)) {
-        return res.status(400).json({ error: 'Materials must be an array' });
+    if (materials) {
+      if (!Array.isArray(materials)) {
+        return res.status(400).json({ error: "Materials must be an array" });
       }
       await productFound.setMaterials([]);
       await Promise.all(
-        Materials.map(async (materialName) => {
-          const materialFound = await Material.findOne({ where: { name: materialName } });
+        materials.map(async (materialName) => {
+          const materialFound = await Material.findOne({
+            where: { name: materialName },
+          });
           await productFound.addMaterials(materialFound);
         })
       );
     }
 
-    if (!productFound.approved) {
-      await transporter.sendMail({
-        from: `GreenWave ${process.env.EMAIL}`,
-        to: userId,
-        subject: "Product pending review",
-        html: `<!DOCTYPE html>
+    if (userId !== null) {
+      if (!productFound.approved) {
+        await transporter.sendMail({
+          from: `GreenWave ${process.env.EMAIL}`,
+          to: userFound.email,
+          subject: "Product pending review",
+          html: `<!DOCTYPE html>
         <html lang="en">
           <head>
             <meta charset="UTF-8" />
@@ -136,11 +141,13 @@ const putProduct = async (req, res) => {
 
            </div>
           </body>
-        </html>`
-      });
+        </html>`,
+        });
+      }
     }
-    return res.status(200).json({ message: 'Publication successfully modified pending review' });
-
+    return res
+      .status(200)
+      .json({ message: "Publication successfully modified pending review" });
   } catch (error) {
     return res.status(500).send(error.message);
   }
